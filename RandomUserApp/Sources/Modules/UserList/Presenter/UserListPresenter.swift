@@ -5,9 +5,7 @@ class UserListPresenter {
     weak var view: UserListViewProtocol?
     var interactor: UserListInteractorProtocol?
     var router: UserListRouterProtocol?
-    
-    private var users = [User]()
-    
+        
     var state: IdleState?
     var idleState: IdleState?
     var fetchingState: FeatchingState?

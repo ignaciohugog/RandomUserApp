@@ -164,6 +164,27 @@ class UserListTest: XCTestCase {
         }
     }
     
+    func test_userBlacklisted_whenDeleteUserAndServiceReturnsDeletedUser_userDeletedIsNotShow() {
+        // Arrange
+        let storedUsers = 0
+        let responseUsers = 2
+        interactor.repository = MockUserRepository(storedUsers, responseUsers)
+                
+        // Act
+        view.loadViewIfNeeded()
+        onBackground {
+            let indexPath = IndexPath(row: 0, section: 0)
+            self.tableView().dataSource?.tableView?(self.tableView(), commit: .delete, forRowAt: indexPath)
+        }
+        
+        // Assert
+        onBackground(0.2) {
+            let indexPath = IndexPath(row: 0, section: 0)
+            self.tableView().prefetchDataSource?.tableView(self.tableView(), prefetchRowsAt: [indexPath])
+            XCTAssertEqual(self.tableView().numberOfRows(inSection: 0), 1)
+        }
+    }
+    
     //MARK: Helpers methods
     
     func onBackground(_ delay: Double = 0.1, _ assert: @escaping  () -> Void) {

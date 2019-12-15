@@ -2,9 +2,14 @@ import UIKit
 import Core
 
 class UserListInteractor {
-    
+    private var blacklist = Set<UUID>()
     weak var presenter: UserListInteractorOutputProtocol?
     var repository: UserRepositoryProtocol = UserRepository(store: ServiceLocator.inject())
+    
+    private func isBlackListed(_ user: User) -> Bool {
+        guard let userId = user.userID else { return false }
+        return !self.blacklist.contains(userId)
+    }
 }
 
 // MARK: UserListInteractorProtocol
@@ -13,8 +18,9 @@ extension UserListInteractor: UserListInteractorProtocol {
     func fetchUsers() {
         repository.fetchUsers().then {
             self.repository.save(Array(Set($0.results)))
-        }.done { users in
+        }.filterValues(isBlackListed).done { users in
             self.presenter?.founded(users)
+            print(users.count)
         }.catch { error in
             // TODO: handle error
         }
@@ -28,7 +34,12 @@ extension UserListInteractor: UserListInteractorProtocol {
         }
     }
     
-    func delete(_ user: User) {
-        let _ = repository.deleteUser(user).done {}
+     func delete(_ user: User) {
+        guard let userID = user.userID else { return }
+        repository.deleteUser(user).done {
+            self.blacklist.insert(userID)
+        }.catch { error in
+            // TODO: handle error
+        }
     }
 }
