@@ -1,18 +1,31 @@
-# Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+# sources
+source 'https://github.com/CocoaPods/Specs.git'
 
-target 'RandomUserApp' do
-  # Comment the next line if you don't want to use dynamic frameworks
-  use_frameworks!
+# global
+platform :ios, '10.0'
+use_frameworks!
+workspace 'RandomUserApp'
 
-  # Pods for RandomUserApp
+def commonPods
   pod 'Alamofire', '~> 5.0.0-rc.2'
   pod 'PromiseKit', '~> 6.8'
-  pod 'Kingfisher', '~> 5.0'
-
-  target 'RandomUserAppTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
 end
+
+def uiPods
+  pod 'Kingfisher', '~> 5.0'
+end
+
+target 'RandomUserApp' do
+  commonPods
+  uiPods
+  target 'RandomUserAppTests' do
+  end
+end
+
+target 'Core' do
+  project './Core/Core'
+  commonPods
+  target 'CoreTests' do
+  end
+end
+

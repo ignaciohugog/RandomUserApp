@@ -1,4 +1,5 @@
 import Foundation
+import Core
 
 //MARK: Router
 protocol UserListRouterProtocol: class {

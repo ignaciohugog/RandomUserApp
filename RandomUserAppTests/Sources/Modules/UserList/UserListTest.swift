@@ -1,4 +1,5 @@
 import XCTest
+@testable import Core
 @testable import RandomUserApp
 
 class UserListTest: XCTestCase {

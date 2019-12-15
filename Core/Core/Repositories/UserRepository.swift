@@ -5,7 +5,9 @@ public protocol UserRepositoryProtocol {
 }
 
 public class UserRepository: UserRepositoryProtocol {
+    public init() {}
     public func loadUsers() -> [User] {
-        return [MockUser()]
+        
+        return [User]()
     }        
 }

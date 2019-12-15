@@ -1,4 +1,6 @@
 import Foundation
+
+@testable import Core
 @testable import RandomUserApp
 
 class MockUserRepository: UserRepositoryProtocol {
