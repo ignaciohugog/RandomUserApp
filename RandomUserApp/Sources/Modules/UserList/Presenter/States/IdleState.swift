@@ -22,8 +22,9 @@ class IdleState: UserListInteractorOutputProtocol, UserListPresenterProtocol {
     }
     
     func show() {
-        let users = self.users.map{ UserListPresenter.prepareForView($0) }
-        presenter?.view?.show(users)
+        guard let presenter = presenter else { return  }
+        let users = self.users.map{ presenter.prepareForView($0) }
+        presenter.view?.show(users)
     }
     
     func getUsers() {}

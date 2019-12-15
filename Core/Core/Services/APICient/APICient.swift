@@ -13,8 +13,7 @@ class APIClient {
         switch response.result {
         case .success(let value):
           seal.fulfill(value)
-        case .failure(let error):
-            print(error)
+        case .failure(let error):            
           seal.reject(error)
         }
       }

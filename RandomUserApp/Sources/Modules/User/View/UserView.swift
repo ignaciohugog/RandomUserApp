@@ -3,8 +3,7 @@ import UIKit
 class UserView: UIViewController {
 
 	var presenter: UserPresenterProtocol?
-
-    @IBOutlet weak var userNameLabel: UILabel!
+    
     @IBOutlet weak var userEmailLabel: UILabel!
     @IBOutlet weak var userGenderLabel: UILabel!
     @IBOutlet weak var userImageView: UIImageView!
@@ -19,8 +18,8 @@ class UserView: UIViewController {
 
 extension UserView: UserViewProtocol {
     func show(_ user: UpcomingDisplayUserDetail) {
+        title = user.name
         userImageView.setImage(from: user.image)
-        userNameLabel.text = user.name
         userEmailLabel.text = user.email
         userGenderLabel.text = user.gender
         userLocationLabel.text = user.location

@@ -49,7 +49,7 @@ extension UserListPresenter: UserListInteractorOutputProtocol {
 }
 
 extension UserListPresenter {
-    class func prepareForView(_ user: User) -> UpcomingDisplayUser {
+    func prepareForView(_ user: User) -> UpcomingDisplayUser {
         return UpcomingDisplayUser(name: [user.name, user.surname].joined(separator: " "),
                                    email: user.email,
                                    phone: user.phone,

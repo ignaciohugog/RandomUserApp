@@ -19,8 +19,7 @@ extension UserListInteractor: UserListInteractorProtocol {
         repository.fetchUsers().then {
             self.repository.save(Array(Set($0.results)))
         }.filterValues(isBlackListed).done { users in
-            self.presenter?.founded(users)
-            print(users.count)
+            self.presenter?.founded(users)            
         }.catch { error in
             // TODO: handle error
         }

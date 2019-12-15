@@ -84,8 +84,8 @@ class UserListTest: XCTestCase {
         view.loadViewIfNeeded()
         onBackground {
             let cell = self.tableView().cell(at: 0) as? UserTableViewCell
-            XCTAssertEqual(cell?.personEmailLabel.text, "anEmail")
-            XCTAssertEqual(cell?.personPhoneLabel.text, "1234")
+            XCTAssertEqual(cell?.userEmailLabel.text, "anEmail")
+            XCTAssertEqual(cell?.userPhoneLabel.text, "1234")
         }
     }
     
@@ -100,7 +100,7 @@ class UserListTest: XCTestCase {
         // Assert
         onBackground {
             let cell = self.tableView().cell(at: 0) as? UserTableViewCell
-            XCTAssertEqual(cell?.personNameLabel.text, "Ignacio ")
+            XCTAssertEqual(cell?.userNameLabel.text, "Ignacio ")
             XCTAssertEqual(self.tableView().numberOfRows(inSection: 0), 1)
         }
     }
