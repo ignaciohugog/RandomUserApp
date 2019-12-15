@@ -44,6 +44,8 @@
 		98C2539A23A6AF8C00CA6668 /* UpcomingDisplayUserDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C2539923A6AF8C00CA6668 /* UpcomingDisplayUserDetail.swift */; };
 		98C2539C23A6B0DD00CA6668 /* UpcomingDisplayUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C2539B23A6B0DD00CA6668 /* UpcomingDisplayUser.swift */; };
 		98CA5B9C23A6B4A4002C699F /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CA5B9B23A6B4A4002C699F /* UIImageView.swift */; };
+		98CA5B9F23A6BB46002C699F /* FeatchingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CA5B9E23A6BB46002C699F /* FeatchingState.swift */; };
+		98CA5BA123A6BB5B002C699F /* IdleState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CA5BA023A6BB5B002C699F /* IdleState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +113,8 @@
 		98C2539923A6AF8C00CA6668 /* UpcomingDisplayUserDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingDisplayUserDetail.swift; sourceTree = "<group>"; };
 		98C2539B23A6B0DD00CA6668 /* UpcomingDisplayUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingDisplayUser.swift; sourceTree = "<group>"; };
 		98CA5B9B23A6B4A4002C699F /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		98CA5B9E23A6BB46002C699F /* FeatchingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatchingState.swift; sourceTree = "<group>"; };
+		98CA5BA023A6BB5B002C699F /* IdleState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdleState.swift; sourceTree = "<group>"; };
 		AB9F7C93ED9606D3F9964CC3 /* Pods_RandomUserApp_RandomUserAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RandomUserApp_RandomUserAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B533CBB30D7E759E879040E6 /* Pods_RandomUserApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RandomUserApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC002AD5E751216E05F56A9C /* Pods-RandomUserApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RandomUserApp.debug.xcconfig"; path = "Target Support Files/Pods-RandomUserApp/Pods-RandomUserApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -284,6 +288,7 @@
 		98C252C223A686AE00CA6668 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				98CA5B9D23A6BB33002C699F /* States */,
 				98C252C323A686AE00CA6668 /* UserListPresenter.swift */,
 				98C2539B23A6B0DD00CA6668 /* UpcomingDisplayUser.swift */,
 			);
@@ -388,6 +393,15 @@
 				98C2539923A6AF8C00CA6668 /* UpcomingDisplayUserDetail.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		98CA5B9D23A6BB33002C699F /* States */ = {
+			isa = PBXGroup;
+			children = (
+				98CA5BA023A6BB5B002C699F /* IdleState.swift */,
+				98CA5B9E23A6BB46002C699F /* FeatchingState.swift */,
+			);
+			path = States;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -584,6 +598,7 @@
 				98C2539223A6AEA700CA6668 /* UserProtocols.swift in Sources */,
 				98C252C723A686AE00CA6668 /* UserListProtocols.swift in Sources */,
 				98C2539323A6AEA700CA6668 /* UserView.swift in Sources */,
+				98CA5BA123A6BB5B002C699F /* IdleState.swift in Sources */,
 				98C252DA23A68B2600CA6668 /* ReusableView.swift in Sources */,
 				98C252D423A688D800CA6668 /* UserTableViewCell.swift in Sources */,
 				98C252CB23A686AE00CA6668 /* UserListPresenter.swift in Sources */,
@@ -593,6 +608,7 @@
 				98C2539823A6AEA700CA6668 /* UserModule.swift in Sources */,
 				98C252CC23A686AE00CA6668 /* UserListInteractor.swift in Sources */,
 				98C252DB23A68B2600CA6668 /* UITableView.swift in Sources */,
+				98CA5B9F23A6BB46002C699F /* FeatchingState.swift in Sources */,
 				98097D0E23A680040024A0ED /* AppDelegate.swift in Sources */,
 				98C2539A23A6AF8C00CA6668 /* UpcomingDisplayUserDetail.swift in Sources */,
 				98C252C923A686AE00CA6668 /* UserListView.swift in Sources */,

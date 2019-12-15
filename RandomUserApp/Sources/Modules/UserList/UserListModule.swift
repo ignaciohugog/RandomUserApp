@@ -12,6 +12,14 @@ class UserListModule {
         presenter.router = router
         presenter.interactor = interactor
         
+        // State        
+        let idleState = IdleState(presenter: presenter)
+        let fetchState = FeatchingState(presenter: presenter)
+        
+        presenter.state = idleState
+        presenter.idleState = idleState
+        presenter.fetchingState = fetchState
+        
         view.presenter = presenter
         interactor.presenter = presenter
         router.viewController = view

@@ -1,6 +1,6 @@
 import Core
 
-class UserListPresenter: UserListPresenterProtocol {
+class UserListPresenter {
 
     weak var view: UserListViewProtocol?
     var interactor: UserListInteractorProtocol?
@@ -8,20 +8,34 @@ class UserListPresenter: UserListPresenterProtocol {
     
     private var users = [User]()
     
-    func getUsers() {
-        interactor?.loadUsers()
-    }
+    var state: IdleState?
+    var idleState: IdleState?
+    var fetchingState: FeatchingState?
     
-    func didSelect(at index: Int) {
-        router?.present(users[index])
+    private var active: Bool {
+        return state is FeatchingState
     }
-
 }
 
+//MARK: UserListPresenterProtocol
+extension UserListPresenter: UserListPresenterProtocol {
+    func getUsers() -> Void {
+        guard active else {
+            state = fetchingState
+            state?.getUsers()
+            return
+        }
+    }
+    
+    func didSelect(at index: Int) -> Void {
+         state?.didSelect(at: index)
+     }
+}
+
+//MARK: UserListInteractorOutputProtocol
 extension UserListPresenter: UserListInteractorOutputProtocol {
     func founded(_ users: [User]) {
-        self.users += users
-        view?.show(users.map{UserListPresenter.prepareForView($0)})
+        state?.founded(users)
     }        
 }
 

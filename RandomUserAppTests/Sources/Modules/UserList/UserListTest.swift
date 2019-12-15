@@ -18,6 +18,13 @@ class UserListTest: XCTestCase {
         interactor.presenter = presenter
         router.viewController = view
         
+        let idleState = IdleState(presenter: presenter)
+        let fetchState = FeatchingState(presenter: presenter)
+        
+        presenter.state = idleState
+        presenter.idleState = idleState
+        presenter.fetchingState = fetchState
+        
     }
     
     func test_viewDidLoad_whithNoUsers_rendersZeroUsers() {
@@ -109,6 +116,23 @@ class UserListTest: XCTestCase {
             self.tableView().delegate?.tableView?(self.view.tableView, didSelectRowAt: indexPath)
             guard let navigation = self.router.viewController as? UINavigationController else { return }
             XCTAssert(navigation.topViewController is UserView)
+        }
+    }
+    
+    func test_prefetchUsers_whenScrollAfterFirstLoad_rendersMoreUsers() {
+        // Arrange
+        let storedUsers = 10
+        let responseUsers = 20
+        interactor.repository = MockUserRepository(storedUsers, responseUsers)
+        // Act
+        view.loadViewIfNeeded()
+        onBackground {
+            let indexPath = IndexPath(row: 9, section: 0)
+            self.tableView().prefetchDataSource?.tableView(self.tableView(), prefetchRowsAt: [indexPath])
+        }
+        // Assert
+        onBackground(0.3) {
+            XCTAssertEqual(self.view.tableView.numberOfRows(inSection: 0), 30)
         }
     }
     
