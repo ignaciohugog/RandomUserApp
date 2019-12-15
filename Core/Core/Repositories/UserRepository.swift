@@ -3,6 +3,7 @@ import PromiseKit
 public protocol UserRepositoryProtocol {
     func loadUsers() -> Promise<[User]>
     func fetchUsers() -> Promise<Result>
+    func deleteUser(_ user: User) -> Promise<Void>
     func save(_ users: [UserDTO]) -> Promise<[User]>
 }
 
@@ -32,5 +33,9 @@ extension UserRepository: UserRepositoryProtocol {
     
     public func save(_ users: [UserDTO]) -> Promise<[User]> {
         return store.saveUsers(dtos: users)
+    }
+    
+    public func deleteUser(_ user: User) -> Promise<Void> {
+        return store.deleteUser(user)
     }
 }

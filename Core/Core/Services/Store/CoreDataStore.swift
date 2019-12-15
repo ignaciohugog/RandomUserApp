@@ -44,4 +44,17 @@ extension CoreDataStore {
             }
         }
     }
+    
+    func deleteUser(_ user: User) -> Promise<Void> {
+        return Promise<Void> { seal in
+            guard let user = user as? ManagedUserItem else { return }
+            backgroundContext.delete(user)
+            do {
+                try backgroundContext.save()
+                seal.fulfill_()
+            } catch let error {
+                seal.reject(error)
+            }
+        }
+    }
 }

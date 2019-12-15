@@ -19,6 +19,15 @@ class UserListPresenter {
 
 //MARK: UserListPresenterProtocol
 extension UserListPresenter: UserListPresenterProtocol {
+    
+    func didSelect(at index: Int) -> Void {
+        state?.didSelect(at: index)
+    }
+    
+    func delete(at index: Int) {
+        state?.delete(at: index)
+    }
+    
     func getUsers() -> Void {
         guard active else {
             state = fetchingState
@@ -27,9 +36,6 @@ extension UserListPresenter: UserListPresenterProtocol {
         }
     }
     
-    func didSelect(at index: Int) -> Void {
-         state?.didSelect(at: index)
-     }
 }
 
 //MARK: UserListInteractorOutputProtocol

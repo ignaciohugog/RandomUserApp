@@ -136,6 +136,34 @@ class UserListTest: XCTestCase {
         }
     }
     
+    func test_viewDidLoad_givenDuplicateUsers_rendersNoDuplicateUsers() {
+        // Arrange
+        let storedUsers = 0
+        let responseUsers = 4
+        interactor.repository = MockDuplicateUserRepository(storedUsers, responseUsers)
+        // Act
+        view.loadViewIfNeeded()
+        // Assert
+        onBackground {
+            XCTAssertEqual(self.tableView().numberOfRows(inSection: 0), 1)
+        }
+    }
+    
+    func test_deleteUser_onViewDidLoad_deleteUserCell() {
+        // Arrange
+        let store = CoreDataStore(container: MockPersistantContainer())
+        let _ = store.saveUsers(dtos: [UserDTO(name:"")])
+        interactor.repository = UserRepository(store: store)
+        // Act
+        view.loadViewIfNeeded()
+        // Assert
+        onBackground {
+            let indexPath = IndexPath(row: 0, section: 0)
+            self.tableView().dataSource?.tableView?(self.tableView(),commit: .delete, forRowAt: indexPath)
+            XCTAssertEqual(self.view.tableView.numberOfRows(inSection: 0), 0)
+        }
+    }
+    
     //MARK: Helpers methods
     
     func onBackground(_ delay: Double = 0.1, _ assert: @escaping  () -> Void) {

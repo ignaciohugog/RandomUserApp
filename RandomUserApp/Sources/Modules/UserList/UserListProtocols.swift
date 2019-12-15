@@ -9,6 +9,7 @@ protocol UserListRouterProtocol: class {
 //MARK: Presenter
 protocol UserListPresenterProtocol: class {
     func getUsers() -> Void
+    func delete(at index: Int) -> Void
     func didSelect(at index: Int) -> Void
 }
 
@@ -17,6 +18,7 @@ protocol UserListInteractorProtocol: class {
     var presenter: UserListInteractorOutputProtocol?  { get set }
     func loadUsers() -> Void
     func fetchUsers() -> Void
+    func delete(_ user: User) -> Void
 }
 
 protocol UserListInteractorOutputProtocol: class {

@@ -1,10 +1,14 @@
 import UIKit
 import Core
 
-class UserListInteractor: UserListInteractorProtocol {
-        
+class UserListInteractor {
+    
     weak var presenter: UserListInteractorOutputProtocol?
     var repository: UserRepositoryProtocol = UserRepository(store: ServiceLocator.inject())
+}
+
+// MARK: UserListInteractorProtocol
+extension UserListInteractor: UserListInteractorProtocol {
     
     func fetchUsers() {
         repository.fetchUsers().then {
@@ -22,5 +26,9 @@ class UserListInteractor: UserListInteractorProtocol {
         }.catch { error in
             // TODO: handle error
         }
+    }
+    
+    func delete(_ user: User) {
+        let _ = repository.deleteUser(user).done {}
     }
 }

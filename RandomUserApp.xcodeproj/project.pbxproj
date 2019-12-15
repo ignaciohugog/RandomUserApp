@@ -46,6 +46,7 @@
 		98CA5B9C23A6B4A4002C699F /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CA5B9B23A6B4A4002C699F /* UIImageView.swift */; };
 		98CA5B9F23A6BB46002C699F /* FeatchingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CA5B9E23A6BB46002C699F /* FeatchingState.swift */; };
 		98CA5BA123A6BB5B002C699F /* IdleState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CA5BA023A6BB5B002C699F /* IdleState.swift */; };
+		98CA5BA323A6C25A002C699F /* MockDuplicateUserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CA5BA223A6C25A002C699F /* MockDuplicateUserRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +116,7 @@
 		98CA5B9B23A6B4A4002C699F /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		98CA5B9E23A6BB46002C699F /* FeatchingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatchingState.swift; sourceTree = "<group>"; };
 		98CA5BA023A6BB5B002C699F /* IdleState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdleState.swift; sourceTree = "<group>"; };
+		98CA5BA223A6C25A002C699F /* MockDuplicateUserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDuplicateUserRepository.swift; sourceTree = "<group>"; };
 		AB9F7C93ED9606D3F9964CC3 /* Pods_RandomUserApp_RandomUserAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RandomUserApp_RandomUserAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B533CBB30D7E759E879040E6 /* Pods_RandomUserApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RandomUserApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC002AD5E751216E05F56A9C /* Pods-RandomUserApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RandomUserApp.debug.xcconfig"; path = "Target Support Files/Pods-RandomUserApp/Pods-RandomUserApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -362,6 +364,7 @@
 			children = (
 				98C2537123A6ABB100CA6668 /* MockFailUserRepository.swift */,
 				98C252E823A691B800CA6668 /* MockRepository.swift */,
+				98CA5BA223A6C25A002C699F /* MockDuplicateUserRepository.swift */,
 			);
 			path = MockRepositories;
 			sourceTree = "<group>";
@@ -624,6 +627,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98CA5BA323A6C25A002C699F /* MockDuplicateUserRepository.swift in Sources */,
 				98C2536623A6A59600CA6668 /* MockUserDTO.swift in Sources */,
 				98C252E223A68B7E00CA6668 /* UserListTest.swift in Sources */,
 				98C2537223A6ABB100CA6668 /* MockFailUserRepository.swift in Sources */,
