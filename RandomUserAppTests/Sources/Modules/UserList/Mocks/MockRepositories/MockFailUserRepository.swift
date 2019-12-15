@@ -1,0 +1,18 @@
+import PromiseKit
+@testable import Core
+@testable import RandomUserApp
+
+class MockFailUserRepository: UserRepositoryProtocol {
+    
+     func loadUsers() -> Promise<[User]> {
+        return Promise.init(error: AppError.undefined)
+    }
+    
+    func fetchUsers() -> Promise<Core.Result> {
+        return Promise.init(error: AppError.undefined)
+    }
+    
+    func save(_ users: [UserDTO]) -> Promise<[User]> {
+        return Promise.init(error: AppError.undefined)
+    }
+}

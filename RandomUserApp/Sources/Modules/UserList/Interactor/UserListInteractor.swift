@@ -4,12 +4,23 @@ import Core
 class UserListInteractor: UserListInteractorProtocol {
         
     weak var presenter: UserListInteractorOutputProtocol?
-    var repository: UserRepositoryProtocol = UserRepository()
+    var repository: UserRepositoryProtocol = UserRepository(store: ServiceLocator.inject())
+    
+    func fetchUsers() {
+        repository.fetchUsers().then {
+            self.repository.save(Array(Set($0.results)))
+        }.done { users in
+            self.presenter?.founded(users)
+        }.catch { error in
+            // TODO: handle error
+        }
+    }
     
     func loadUsers() {
-        repository.fetchUsers().done { result in
-            let users = result.results.map{ MockUser(dto: $0)}
-            self.presenter?.founded(users)
+        repository.loadUsers().done { users in
+            users.isEmpty ? self.fetchUsers() : self.presenter?.founded(users)
+        }.catch { error in
+            // TODO: handle error
         }
     }
 }

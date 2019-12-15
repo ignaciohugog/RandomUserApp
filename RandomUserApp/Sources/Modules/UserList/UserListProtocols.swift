@@ -15,6 +15,7 @@ protocol UserListPresenterProtocol: class {
 protocol UserListInteractorProtocol: class {
     var presenter: UserListInteractorOutputProtocol?  { get set }
     func loadUsers() -> Void
+    func fetchUsers() -> Void
 }
 
 protocol UserListInteractorOutputProtocol: class {

@@ -56,6 +56,46 @@ class UserListTest: XCTestCase {
         }
     }
     
+    func test_viewDidLoad_whenServiceFails_rendersZeroUsers() {
+        // Arrange
+        interactor.repository = MockFailUserRepository()
+        // Act
+        view.loadViewIfNeeded()
+        // Assert
+        onBackground {
+            XCTAssertEqual(self.tableView().numberOfRows(inSection: 0), 0)
+        }
+    }
+    
+    func test_viewDidLoad_whithOneUser_renderCellWithUserInfo() {
+        // Arrange
+        let totalUsers = 1
+        interactor.repository = MockUserRepository(totalUsers)
+        // Act
+        view.loadViewIfNeeded()
+        onBackground {
+            let cell = self.tableView().cell(at: 0) as? UserTableViewCell
+            XCTAssertEqual(cell?.personEmailLabel.text, "anEmail")
+            XCTAssertEqual(cell?.personPhoneLabel.text, "1234")
+        }
+    }
+    
+    
+    func test_viewDidLoad_hasPersistedUsers_rendersPersistedUsers() {
+        // Arrange
+        let store = CoreDataStore(container: MockPersistantContainer())
+        let _ = store.saveUsers(dtos: [UserDTO(name:"Ignacio")])
+        interactor.repository = UserRepository(store: store)
+        // Act
+        view.loadViewIfNeeded()
+        // Assert
+        onBackground {
+            let cell = self.tableView().cell(at: 0) as? UserTableViewCell
+            XCTAssertEqual(cell?.personNameLabel.text, "Ignacio ")
+            XCTAssertEqual(self.tableView().numberOfRows(inSection: 0), 1)
+        }
+    }
+    
     //MARK: Helpers methods
     
     func onBackground(_ delay: Double = 0.1, _ assert: @escaping  () -> Void) {
@@ -71,6 +111,10 @@ class UserListTest: XCTestCase {
     func tableView() -> UITableView {
         return view.tableView
     }
+}
 
-
+private extension UITableView {
+    func cell(at row: Int) -> UITableViewCell? {
+        return dataSource?.tableView(self, cellForRowAt: IndexPath(row: row, section: 0))
+    }
 }

@@ -31,4 +31,9 @@ class MockUser: User {
         self.gender = dto.gender
         self.registered = dto.registeredDate
     }
+    
+    convenience init(name: String) {
+        self.init()
+        self.name = name
+    }
 }
