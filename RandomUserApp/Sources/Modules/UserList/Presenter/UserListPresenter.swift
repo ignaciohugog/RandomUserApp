@@ -9,10 +9,10 @@ class UserListPresenter {
     var state: IdleState?
     var idleState: IdleState?
     var searchState: SearchState?
-    var fetchingState: FeatchingState?
+    var fetchState: FetchState?
     
     private var active: Bool {
-        return state is FeatchingState || state is SearchState
+        return state is FetchState || state is SearchState
     }
 }
 
@@ -34,12 +34,11 @@ extension UserListPresenter: UserListPresenterProtocol {
     
     func getUsers() -> Void {
         guard active else {
-            state = fetchingState
+            state = fetchState
             state?.getUsers()
             return
         }
-    }
-    
+    }    
 }
 
 //MARK: UserListInteractorOutputProtocol

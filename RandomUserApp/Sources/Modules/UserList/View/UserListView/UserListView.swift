@@ -39,7 +39,8 @@ extension UserListView: UITableViewDataSource {
         users.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView,
+                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as UserTableViewCell
         cell.configure(users[indexPath.row])
         return cell

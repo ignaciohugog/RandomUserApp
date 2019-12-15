@@ -1,6 +1,6 @@
 import Core
 
-class FeatchingState: IdleState {
+class FetchState: IdleState {
     
     override func getUsers() {
         guard let interactor = presenter?.interactor,

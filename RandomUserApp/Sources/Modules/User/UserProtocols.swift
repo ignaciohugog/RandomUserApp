@@ -7,7 +7,6 @@ protocol UserPresenterProtocol: class {
 
 //MARK: View
 protocol UserViewProtocol: class {
-
     var presenter: UserPresenterProtocol?  { get set }
     func show(_ user: UpcomingDisplayUserDetail) -> Void
 }

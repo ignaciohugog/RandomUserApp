@@ -15,12 +15,12 @@ class UserListModule {
         // State        
         let idleState = IdleState(presenter: presenter)
         let searchState = SearchState(presenter: presenter)
-        let fetchState = FeatchingState(presenter: presenter)
+        let fetchState = FetchState(presenter: presenter)
         
         presenter.state = idleState
         presenter.idleState = idleState
+        presenter.fetchState = fetchState
         presenter.searchState = searchState
-        presenter.fetchingState = fetchState
         
         view.presenter = presenter
         interactor.presenter = presenter

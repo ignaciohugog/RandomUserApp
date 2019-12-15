@@ -10,8 +10,10 @@ class SearchState: IdleState {
     
     override func delete(at index: Int) {
         let user = users.remove(at: index)
-        let index = presenter?.idleState?.users.firstIndex(where: { $0.userID == user.userID })
-        presenter?.idleState?.delete(at: index!)
+        guard let index = presenter?.idleState?.users.firstIndex(
+            where: { $0.userID == user.userID }) else { return }
+        
+        presenter?.idleState?.delete(at: index)
     }
     
     override func findUsers(by term: String) {

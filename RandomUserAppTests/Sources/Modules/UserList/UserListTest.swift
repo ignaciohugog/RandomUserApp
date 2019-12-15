@@ -19,13 +19,13 @@ class UserListTest: XCTestCase {
         router.viewController = view
         
         let idleState = IdleState(presenter: presenter)
+        let fetchState = FetchState(presenter: presenter)
         let searchState = SearchState(presenter: presenter)
-        let fetchState = FeatchingState(presenter: presenter)
         
         presenter.state = idleState
         presenter.idleState = idleState
         presenter.searchState = searchState
-        presenter.fetchingState = fetchState
+        presenter.fetchState = fetchState
         
     }
     

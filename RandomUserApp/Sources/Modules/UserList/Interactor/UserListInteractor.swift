@@ -4,7 +4,7 @@ import Core
 class UserListInteractor {
     private var blacklist = Set<UUID>()
     weak var presenter: UserListInteractorOutputProtocol?
-    var repository: UserRepositoryProtocol = UserRepository(store: ServiceLocator.inject())
+    var repository: UserRepositoryProtocol = ServiceLocator.inject()
     
     private func isBlackListed(_ user: User) -> Bool {
         guard let userId = user.userID else { return false }
