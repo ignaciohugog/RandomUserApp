@@ -1,8 +1,6 @@
-import UIKit
 import Core
 
 class UserListPresenter: UserListPresenterProtocol {
-    
 
     weak var view: UserListViewProtocol?
     var interactor: UserListInteractorProtocol?
@@ -12,6 +10,10 @@ class UserListPresenter: UserListPresenterProtocol {
     
     func getUsers() {
         interactor?.loadUsers()
+    }
+    
+    func didSelect(at index: Int) {
+        router?.present(users[index])
     }
 
 }

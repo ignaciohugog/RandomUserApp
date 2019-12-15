@@ -16,7 +16,6 @@ class UserListView: UIViewController {
     private func customizeUI() -> Void {
          tableView.register(UserTableViewCell.self)
      }
-
 }
 
 // MARK: PersonListViewProtocol
@@ -28,7 +27,7 @@ extension UserListView: UserListViewProtocol {
 }
 
 // MARK: TableView methods
-extension UserListView: UITableViewDataSource {
+extension UserListView: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         users.count
@@ -38,5 +37,10 @@ extension UserListView: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as UserTableViewCell
         cell.configure(users[indexPath.row])
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.resignFirstResponder()
+        presenter?.didSelect(at: indexPath.row)
     }
 }

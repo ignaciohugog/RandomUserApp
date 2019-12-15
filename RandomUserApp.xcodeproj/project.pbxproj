@@ -36,6 +36,14 @@
 		98C2537223A6ABB100CA6668 /* MockFailUserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C2537123A6ABB100CA6668 /* MockFailUserRepository.swift */; };
 		98C2537423A6AC2700CA6668 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C2537323A6AC2700CA6668 /* AppError.swift */; };
 		98C2537723A6AC6000CA6668 /* MockPersistantContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C2537623A6AC6000CA6668 /* MockPersistantContainer.swift */; };
+		98C2539223A6AEA700CA6668 /* UserProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C2538723A6AEA600CA6668 /* UserProtocols.swift */; };
+		98C2539323A6AEA700CA6668 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C2538923A6AEA600CA6668 /* UserView.swift */; };
+		98C2539423A6AEA700CA6668 /* UserView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98C2538A23A6AEA600CA6668 /* UserView.xib */; };
+		98C2539523A6AEA700CA6668 /* UserPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C2538C23A6AEA700CA6668 /* UserPresenter.swift */; };
+		98C2539823A6AEA700CA6668 /* UserModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C2539123A6AEA700CA6668 /* UserModule.swift */; };
+		98C2539A23A6AF8C00CA6668 /* UpcomingDisplayUserDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C2539923A6AF8C00CA6668 /* UpcomingDisplayUserDetail.swift */; };
+		98C2539C23A6B0DD00CA6668 /* UpcomingDisplayUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C2539B23A6B0DD00CA6668 /* UpcomingDisplayUser.swift */; };
+		98CA5B9C23A6B4A4002C699F /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CA5B9B23A6B4A4002C699F /* UIImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +103,14 @@
 		98C2537123A6ABB100CA6668 /* MockFailUserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFailUserRepository.swift; sourceTree = "<group>"; };
 		98C2537323A6AC2700CA6668 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		98C2537623A6AC6000CA6668 /* MockPersistantContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPersistantContainer.swift; sourceTree = "<group>"; };
+		98C2538723A6AEA600CA6668 /* UserProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProtocols.swift; sourceTree = "<group>"; };
+		98C2538923A6AEA600CA6668 /* UserView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
+		98C2538A23A6AEA600CA6668 /* UserView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserView.xib; sourceTree = "<group>"; };
+		98C2538C23A6AEA700CA6668 /* UserPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPresenter.swift; sourceTree = "<group>"; };
+		98C2539123A6AEA700CA6668 /* UserModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModule.swift; sourceTree = "<group>"; };
+		98C2539923A6AF8C00CA6668 /* UpcomingDisplayUserDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingDisplayUserDetail.swift; sourceTree = "<group>"; };
+		98C2539B23A6B0DD00CA6668 /* UpcomingDisplayUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingDisplayUser.swift; sourceTree = "<group>"; };
+		98CA5B9B23A6B4A4002C699F /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		AB9F7C93ED9606D3F9964CC3 /* Pods_RandomUserApp_RandomUserAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RandomUserApp_RandomUserAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B533CBB30D7E759E879040E6 /* Pods_RandomUserApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RandomUserApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC002AD5E751216E05F56A9C /* Pods-RandomUserApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RandomUserApp.debug.xcconfig"; path = "Target Support Files/Pods-RandomUserApp/Pods-RandomUserApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -206,6 +222,7 @@
 		98C252AB23A6829B00CA6668 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				98C2537823A6AE2700CA6668 /* User */,
 				98C252AE23A6847100CA6668 /* UserList */,
 			);
 			path = Modules;
@@ -219,6 +236,7 @@
 				98C252D723A68B2600CA6668 /* UITableView.swift */,
 				98C252D923A68B2600CA6668 /* UITableViewCell.swift */,
 				98C2537323A6AC2700CA6668 /* AppError.swift */,
+				98CA5B9B23A6B4A4002C699F /* UIImageView.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -236,12 +254,12 @@
 		98C252AE23A6847100CA6668 /* UserList */ = {
 			isa = PBXGroup;
 			children = (
+				98C252BB23A686AE00CA6668 /* UserListModule.swift */,
+				98C252BC23A686AE00CA6668 /* UserListProtocols.swift */,
 				98C252BD23A686AE00CA6668 /* View */,
 				98C252C423A686AE00CA6668 /* Interactor */,
 				98C252C223A686AE00CA6668 /* Presenter */,
 				98C252C023A686AE00CA6668 /* Router */,
-				98C252BB23A686AE00CA6668 /* UserListModule.swift */,
-				98C252BC23A686AE00CA6668 /* UserListProtocols.swift */,
 			);
 			path = UserList;
 			sourceTree = "<group>";
@@ -267,6 +285,7 @@
 			isa = PBXGroup;
 			children = (
 				98C252C323A686AE00CA6668 /* UserListPresenter.swift */,
+				98C2539B23A6B0DD00CA6668 /* UpcomingDisplayUser.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -340,6 +359,35 @@
 				98C252E823A691B800CA6668 /* MockRepository.swift */,
 			);
 			path = MockRepositories;
+			sourceTree = "<group>";
+		};
+		98C2537823A6AE2700CA6668 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				98C2539123A6AEA700CA6668 /* UserModule.swift */,
+				98C2538723A6AEA600CA6668 /* UserProtocols.swift */,
+				98C2538823A6AEA600CA6668 /* View */,
+				98C2538B23A6AEA700CA6668 /* Presenter */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		98C2538823A6AEA600CA6668 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				98C2538923A6AEA600CA6668 /* UserView.swift */,
+				98C2538A23A6AEA600CA6668 /* UserView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		98C2538B23A6AEA700CA6668 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				98C2538C23A6AEA700CA6668 /* UserPresenter.swift */,
+				98C2539923A6AF8C00CA6668 /* UpcomingDisplayUserDetail.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -433,6 +481,7 @@
 				98C252C823A686AE00CA6668 /* UserListView.xib in Resources */,
 				98097D1A23A680050024A0ED /* LaunchScreen.storyboard in Resources */,
 				98097D1723A680050024A0ED /* Assets.xcassets in Resources */,
+				98C2539423A6AEA700CA6668 /* UserView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -532,19 +581,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				98C252DC23A68B2600CA6668 /* NibLoadableView.swift in Sources */,
+				98C2539223A6AEA700CA6668 /* UserProtocols.swift in Sources */,
 				98C252C723A686AE00CA6668 /* UserListProtocols.swift in Sources */,
+				98C2539323A6AEA700CA6668 /* UserView.swift in Sources */,
 				98C252DA23A68B2600CA6668 /* ReusableView.swift in Sources */,
 				98C252D423A688D800CA6668 /* UserTableViewCell.swift in Sources */,
 				98C252CB23A686AE00CA6668 /* UserListPresenter.swift in Sources */,
 				98C252C623A686AE00CA6668 /* UserListModule.swift in Sources */,
+				98C2539523A6AEA700CA6668 /* UserPresenter.swift in Sources */,
 				98C2537423A6AC2700CA6668 /* AppError.swift in Sources */,
+				98C2539823A6AEA700CA6668 /* UserModule.swift in Sources */,
 				98C252CC23A686AE00CA6668 /* UserListInteractor.swift in Sources */,
 				98C252DB23A68B2600CA6668 /* UITableView.swift in Sources */,
 				98097D0E23A680040024A0ED /* AppDelegate.swift in Sources */,
+				98C2539A23A6AF8C00CA6668 /* UpcomingDisplayUserDetail.swift in Sources */,
 				98C252C923A686AE00CA6668 /* UserListView.swift in Sources */,
+				98CA5B9C23A6B4A4002C699F /* UIImageView.swift in Sources */,
 				98C252CA23A686AE00CA6668 /* UserListRouter.swift in Sources */,
 				98C2536F23A6A8BC00CA6668 /* RandomUser.xcdatamodel in Sources */,
 				98C252DD23A68B2600CA6668 /* UITableViewCell.swift in Sources */,
+				98C2539C23A6B0DD00CA6668 /* UpcomingDisplayUser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

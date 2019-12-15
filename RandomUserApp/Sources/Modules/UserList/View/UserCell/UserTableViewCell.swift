@@ -14,5 +14,6 @@ class UserTableViewCell: UITableViewCell {
         personNameLabel.text = user.name
         personEmailLabel.text = user.email
         personPhoneLabel.text = user.phone
+        personImageView.setImage(from: user.image)
     }
 }

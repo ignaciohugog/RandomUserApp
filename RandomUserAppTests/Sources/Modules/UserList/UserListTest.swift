@@ -96,6 +96,22 @@ class UserListTest: XCTestCase {
         }
     }
     
+    func test_navigation_whenRowSelected_navigateToPersonView() {
+        // Arrange
+        let totalUsers = 1
+        interactor.repository = MockUserRepository(totalUsers)
+        // Act
+        view.loadViewIfNeeded()
+        
+        // Assert
+        onBackground {
+            let indexPath = IndexPath(row: 0, section: 0)
+            self.tableView().delegate?.tableView?(self.view.tableView, didSelectRowAt: indexPath)
+            guard let navigation = self.router.viewController as? UINavigationController else { return }
+            XCTAssert(navigation.topViewController is UserView)
+        }
+    }
+    
     //MARK: Helpers methods
     
     func onBackground(_ delay: Double = 0.1, _ assert: @escaping  () -> Void) {

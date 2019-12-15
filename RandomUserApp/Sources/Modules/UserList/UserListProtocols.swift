@@ -3,12 +3,13 @@ import Core
 
 //MARK: Router
 protocol UserListRouterProtocol: class {
-
+    func present(_ user: User) -> Void
 }
 
 //MARK: Presenter
 protocol UserListPresenterProtocol: class {
     func getUsers() -> Void
+    func didSelect(at index: Int) -> Void
 }
 
 //MARK: Interactor
@@ -26,11 +27,4 @@ protocol UserListInteractorOutputProtocol: class {
 protocol UserListViewProtocol: class {
     var presenter: UserListPresenterProtocol?  { get set }
     func show(_ persons: [UpcomingDisplayUser]) -> Void
-}
-
-struct UpcomingDisplayUser {
-    let name: String
-    let email: String
-    let phone: String
-    let image: String
 }

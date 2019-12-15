@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let vc = UIViewController()
         vc.view.backgroundColor = .red
         
-        window?.rootViewController =  UserListModule.build()
+        window?.rootViewController =  UINavigationController(rootViewController: UserListModule.build()) 
         return true
     }
 }
