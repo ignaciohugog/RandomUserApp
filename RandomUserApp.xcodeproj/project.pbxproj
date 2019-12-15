@@ -10,6 +10,25 @@
 		98097D0E23A680040024A0ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98097D0D23A680040024A0ED /* AppDelegate.swift */; };
 		98097D1723A680050024A0ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98097D1623A680050024A0ED /* Assets.xcassets */; };
 		98097D1A23A680050024A0ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98097D1823A680050024A0ED /* LaunchScreen.storyboard */; };
+		98C252C623A686AE00CA6668 /* UserListModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C252BB23A686AE00CA6668 /* UserListModule.swift */; };
+		98C252C723A686AE00CA6668 /* UserListProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C252BC23A686AE00CA6668 /* UserListProtocols.swift */; };
+		98C252C823A686AE00CA6668 /* UserListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98C252BE23A686AE00CA6668 /* UserListView.xib */; };
+		98C252C923A686AE00CA6668 /* UserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C252BF23A686AE00CA6668 /* UserListView.swift */; };
+		98C252CA23A686AE00CA6668 /* UserListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C252C123A686AE00CA6668 /* UserListRouter.swift */; };
+		98C252CB23A686AE00CA6668 /* UserListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C252C323A686AE00CA6668 /* UserListPresenter.swift */; };
+		98C252CC23A686AE00CA6668 /* UserListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C252C523A686AE00CA6668 /* UserListInteractor.swift */; };
+		98C252CF23A687B900CA6668 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C252CE23A687B900CA6668 /* User.swift */; };
+		98C252D423A688D800CA6668 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C252D223A688D800CA6668 /* UserTableViewCell.swift */; };
+		98C252D523A688D800CA6668 /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98C252D323A688D800CA6668 /* UserTableViewCell.xib */; };
+		98C252DA23A68B2600CA6668 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C252D623A68B2600CA6668 /* ReusableView.swift */; };
+		98C252DB23A68B2600CA6668 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C252D723A68B2600CA6668 /* UITableView.swift */; };
+		98C252DC23A68B2600CA6668 /* NibLoadableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C252D823A68B2600CA6668 /* NibLoadableView.swift */; };
+		98C252DD23A68B2600CA6668 /* UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C252D923A68B2600CA6668 /* UITableViewCell.swift */; };
+		98C252E223A68B7E00CA6668 /* UserListTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C252E123A68B7E00CA6668 /* UserListTest.swift */; };
+		98C252E423A6913700CA6668 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C252E323A6913700CA6668 /* UserRepository.swift */; };
+		98C252E923A691B800CA6668 /* MockRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C252E823A691B800CA6668 /* MockRepository.swift */; };
+		98C252EB23A691CF00CA6668 /* MockUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C252EA23A691CF00CA6668 /* MockUser.swift */; };
+		98C252EC23A6932100CA6668 /* MockUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C252EA23A691CF00CA6668 /* MockUser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +49,24 @@
 		98097D1B23A680050024A0ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		98097D2023A680050024A0ED /* RandomUserAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RandomUserAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		98097D2623A680050024A0ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		98C252BB23A686AE00CA6668 /* UserListModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListModule.swift; sourceTree = "<group>"; };
+		98C252BC23A686AE00CA6668 /* UserListProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListProtocols.swift; sourceTree = "<group>"; };
+		98C252BE23A686AE00CA6668 /* UserListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserListView.xib; sourceTree = "<group>"; };
+		98C252BF23A686AE00CA6668 /* UserListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListView.swift; sourceTree = "<group>"; };
+		98C252C123A686AE00CA6668 /* UserListRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListRouter.swift; sourceTree = "<group>"; };
+		98C252C323A686AE00CA6668 /* UserListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListPresenter.swift; sourceTree = "<group>"; };
+		98C252C523A686AE00CA6668 /* UserListInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListInteractor.swift; sourceTree = "<group>"; };
+		98C252CE23A687B900CA6668 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		98C252D223A688D800CA6668 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
+		98C252D323A688D800CA6668 /* UserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
+		98C252D623A68B2600CA6668 /* ReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
+		98C252D723A68B2600CA6668 /* UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
+		98C252D823A68B2600CA6668 /* NibLoadableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadableView.swift; sourceTree = "<group>"; };
+		98C252D923A68B2600CA6668 /* UITableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewCell.swift; sourceTree = "<group>"; };
+		98C252E123A68B7E00CA6668 /* UserListTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListTest.swift; sourceTree = "<group>"; };
+		98C252E323A6913700CA6668 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		98C252E823A691B800CA6668 /* MockRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRepository.swift; sourceTree = "<group>"; };
+		98C252EA23A691CF00CA6668 /* MockUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +117,7 @@
 		98097D2323A680050024A0ED /* RandomUserAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				98C252DE23A68B4800CA6668 /* Sources */,
 				98097D2623A680050024A0ED /* Info.plist */,
 			);
 			path = RandomUserAppTests;
@@ -88,6 +126,7 @@
 		98C252A923A6828B00CA6668 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				98C252CD23A687A400CA6668 /* Core */,
 				98C252AA23A6829200CA6668 /* Main */,
 				98C252AB23A6829B00CA6668 /* Modules */,
 				98C252AC23A682CB00CA6668 /* Commons */,
@@ -106,6 +145,7 @@
 		98C252AB23A6829B00CA6668 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				98C252AE23A6847100CA6668 /* UserList */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -113,6 +153,10 @@
 		98C252AC23A682CB00CA6668 /* Commons */ = {
 			isa = PBXGroup;
 			children = (
+				98C252D823A68B2600CA6668 /* NibLoadableView.swift */,
+				98C252D623A68B2600CA6668 /* ReusableView.swift */,
+				98C252D723A68B2600CA6668 /* UITableView.swift */,
+				98C252D923A68B2600CA6668 /* UITableViewCell.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -125,6 +169,113 @@
 				98097D1B23A680050024A0ED /* Info.plist */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		98C252AE23A6847100CA6668 /* UserList */ = {
+			isa = PBXGroup;
+			children = (
+				98C252BD23A686AE00CA6668 /* View */,
+				98C252C423A686AE00CA6668 /* Interactor */,
+				98C252C223A686AE00CA6668 /* Presenter */,
+				98C252C023A686AE00CA6668 /* Router */,
+				98C252BB23A686AE00CA6668 /* UserListModule.swift */,
+				98C252BC23A686AE00CA6668 /* UserListProtocols.swift */,
+			);
+			path = UserList;
+			sourceTree = "<group>";
+		};
+		98C252BD23A686AE00CA6668 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				98C252D023A6888E00CA6668 /* UserCell */,
+				98C252D123A6889A00CA6668 /* UserListView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		98C252C023A686AE00CA6668 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				98C252C123A686AE00CA6668 /* UserListRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		98C252C223A686AE00CA6668 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				98C252C323A686AE00CA6668 /* UserListPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		98C252C423A686AE00CA6668 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				98C252C523A686AE00CA6668 /* UserListInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		98C252CD23A687A400CA6668 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				98C252CE23A687B900CA6668 /* User.swift */,
+				98C252E323A6913700CA6668 /* UserRepository.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		98C252D023A6888E00CA6668 /* UserCell */ = {
+			isa = PBXGroup;
+			children = (
+				98C252D223A688D800CA6668 /* UserTableViewCell.swift */,
+				98C252D323A688D800CA6668 /* UserTableViewCell.xib */,
+			);
+			path = UserCell;
+			sourceTree = "<group>";
+		};
+		98C252D123A6889A00CA6668 /* UserListView */ = {
+			isa = PBXGroup;
+			children = (
+				98C252BE23A686AE00CA6668 /* UserListView.xib */,
+				98C252BF23A686AE00CA6668 /* UserListView.swift */,
+			);
+			path = UserListView;
+			sourceTree = "<group>";
+		};
+		98C252DE23A68B4800CA6668 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				98C252DF23A68B5100CA6668 /* Modules */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		98C252DF23A68B5100CA6668 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				98C252E023A68B6200CA6668 /* UserList */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		98C252E023A68B6200CA6668 /* UserList */ = {
+			isa = PBXGroup;
+			children = (
+				98C252E523A6916600CA6668 /* Mocks */,
+				98C252E123A68B7E00CA6668 /* UserListTest.swift */,
+			);
+			path = UserList;
+			sourceTree = "<group>";
+		};
+		98C252E523A6916600CA6668 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				98C252E823A691B800CA6668 /* MockRepository.swift */,
+				98C252EA23A691CF00CA6668 /* MockUser.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,6 +331,7 @@
 					};
 					98097D1F23A680050024A0ED = {
 						CreatedOnToolsVersion = 11.0;
+						LastSwiftMigration = 1100;
 						TestTargetID = 98097D0923A680040024A0ED;
 					};
 				};
@@ -208,6 +360,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98C252D523A688D800CA6668 /* UserTableViewCell.xib in Resources */,
+				98C252C823A686AE00CA6668 /* UserListView.xib in Resources */,
 				98097D1A23A680050024A0ED /* LaunchScreen.storyboard in Resources */,
 				98097D1723A680050024A0ED /* Assets.xcassets in Resources */,
 			);
@@ -227,7 +381,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98C252DC23A68B2600CA6668 /* NibLoadableView.swift in Sources */,
+				98C252C723A686AE00CA6668 /* UserListProtocols.swift in Sources */,
+				98C252DA23A68B2600CA6668 /* ReusableView.swift in Sources */,
+				98C252D423A688D800CA6668 /* UserTableViewCell.swift in Sources */,
+				98C252CB23A686AE00CA6668 /* UserListPresenter.swift in Sources */,
+				98C252C623A686AE00CA6668 /* UserListModule.swift in Sources */,
+				98C252E423A6913700CA6668 /* UserRepository.swift in Sources */,
+				98C252CC23A686AE00CA6668 /* UserListInteractor.swift in Sources */,
+				98C252CF23A687B900CA6668 /* User.swift in Sources */,
+				98C252DB23A68B2600CA6668 /* UITableView.swift in Sources */,
+				98C252EC23A6932100CA6668 /* MockUser.swift in Sources */,
 				98097D0E23A680040024A0ED /* AppDelegate.swift in Sources */,
+				98C252C923A686AE00CA6668 /* UserListView.swift in Sources */,
+				98C252CA23A686AE00CA6668 /* UserListRouter.swift in Sources */,
+				98C252DD23A68B2600CA6668 /* UITableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,6 +403,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98C252E223A68B7E00CA6668 /* UserListTest.swift in Sources */,
+				98C252EB23A691CF00CA6668 /* MockUser.swift in Sources */,
+				98C252E923A691B800CA6668 /* MockRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +584,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RandomUserAppTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -423,6 +595,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = IGN.RandomUserAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RandomUserApp.app/RandomUserApp";
@@ -434,6 +607,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RandomUserAppTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

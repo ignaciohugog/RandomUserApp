@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let vc = UIViewController()
         vc.view.backgroundColor = .red
         
-        window?.rootViewController =  UINavigationController(rootViewController: vc)
+        window?.rootViewController =  UserListModule.build()
         return true
     }
 }
