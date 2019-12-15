@@ -10,10 +10,18 @@
 		07D3D7B3FC72170F9140098B /* Pods_Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87A97F81D201E99517BE854D /* Pods_Core.framework */; };
 		7A3223C01C7F28FA83D947AF /* Pods_Core_CoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76152D10D53709B15CB6E2F9 /* Pods_Core_CoreTests.framework */; };
 		98C2533123A69A7300CA6668 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98C2532723A69A7300CA6668 /* Core.framework */; };
-		98C2533623A69A7300CA6668 /* CoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C2533523A69A7300CA6668 /* CoreTests.swift */; };
 		98C2533823A69A7300CA6668 /* Core.h in Headers */ = {isa = PBXBuildFile; fileRef = 98C2532A23A69A7300CA6668 /* Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		98C2534723A69B6700CA6668 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C2534623A69B6700CA6668 /* User.swift */; };
 		98C2534A23A69B8400CA6668 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C2534923A69B8400CA6668 /* UserRepository.swift */; };
+		98C2534D23A6A0AF00CA6668 /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C2534C23A6A0AF00CA6668 /* UserDTO.swift */; };
+		98C2534F23A6A0F600CA6668 /* LocationDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C2534E23A6A0F600CA6668 /* LocationDTO.swift */; };
+		98C2535423A6A1F400CA6668 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C2535323A6A1F400CA6668 /* APIRouter.swift */; };
+		98C2535623A6A20300CA6668 /* UserAPIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C2535523A6A20300CA6668 /* UserAPIRouter.swift */; };
+		98C2535823A6A2B800CA6668 /* APICient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C2535723A6A2B800CA6668 /* APICient.swift */; };
+		98C2535B23A6A33E00CA6668 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C2535A23A6A33E00CA6668 /* DateFormatter.swift */; };
+		98C2535F23A6A3A700CA6668 /* UserDTOTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C2535E23A6A3A700CA6668 /* UserDTOTest.swift */; };
+		98C2536223A6A3E200CA6668 /* valid_user.json in Resources */ = {isa = PBXBuildFile; fileRef = 98C2536023A6A3E200CA6668 /* valid_user.json */; };
+		98C2536323A6A3E200CA6668 /* invalid_user.json in Resources */ = {isa = PBXBuildFile; fileRef = 98C2536123A6A3E200CA6668 /* invalid_user.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,10 +42,18 @@
 		98C2532A23A69A7300CA6668 /* Core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Core.h; sourceTree = "<group>"; };
 		98C2532B23A69A7300CA6668 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		98C2533023A69A7300CA6668 /* CoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		98C2533523A69A7300CA6668 /* CoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreTests.swift; sourceTree = "<group>"; };
 		98C2533723A69A7300CA6668 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		98C2534623A69B6700CA6668 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		98C2534923A69B8400CA6668 /* UserRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		98C2534C23A6A0AF00CA6668 /* UserDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDTO.swift; sourceTree = "<group>"; };
+		98C2534E23A6A0F600CA6668 /* LocationDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDTO.swift; sourceTree = "<group>"; };
+		98C2535323A6A1F400CA6668 /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
+		98C2535523A6A20300CA6668 /* UserAPIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPIRouter.swift; sourceTree = "<group>"; };
+		98C2535723A6A2B800CA6668 /* APICient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICient.swift; sourceTree = "<group>"; };
+		98C2535A23A6A33E00CA6668 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		98C2535E23A6A3A700CA6668 /* UserDTOTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDTOTest.swift; sourceTree = "<group>"; };
+		98C2536023A6A3E200CA6668 /* valid_user.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = valid_user.json; sourceTree = "<group>"; };
+		98C2536123A6A3E200CA6668 /* invalid_user.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = invalid_user.json; sourceTree = "<group>"; };
 		B1FCB674701B97CA2249119B /* Pods-Core.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Core.release.xcconfig"; path = "Target Support Files/Pods-Core/Pods-Core.release.xcconfig"; sourceTree = "<group>"; };
 		CEF3C1379B94BAAEE7E414EC /* Pods-Core-CoreTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Core-CoreTests.debug.xcconfig"; path = "Target Support Files/Pods-Core-CoreTests/Pods-Core-CoreTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D2273A6B59C91BD9185E5BB0 /* Pods-Core.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Core.debug.xcconfig"; path = "Target Support Files/Pods-Core/Pods-Core.debug.xcconfig"; sourceTree = "<group>"; };
@@ -109,7 +125,10 @@
 			isa = PBXGroup;
 			children = (
 				98C2534523A69B1D00CA6668 /* Entities */,
+				98C2535023A6A1C100CA6668 /* Services */,
 				98C2534823A69B7300CA6668 /* Repositories */,
+				98C2534B23A6A08E00CA6668 /* DTO */,
+				98C2535923A6A32E00CA6668 /* Utils */,
 				98C2532A23A69A7300CA6668 /* Core.h */,
 				98C2532B23A69A7300CA6668 /* Info.plist */,
 			);
@@ -119,7 +138,8 @@
 		98C2533423A69A7300CA6668 /* CoreTests */ = {
 			isa = PBXGroup;
 			children = (
-				98C2533523A69A7300CA6668 /* CoreTests.swift */,
+				98C2535D23A6A38900CA6668 /* JSONs */,
+				98C2535C23A6A37E00CA6668 /* DTO */,
 				98C2533723A69A7300CA6668 /* Info.plist */,
 			);
 			path = CoreTests;
@@ -139,6 +159,66 @@
 				98C2534923A69B8400CA6668 /* UserRepository.swift */,
 			);
 			path = Repositories;
+			sourceTree = "<group>";
+		};
+		98C2534B23A6A08E00CA6668 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				98C2534C23A6A0AF00CA6668 /* UserDTO.swift */,
+				98C2534E23A6A0F600CA6668 /* LocationDTO.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		98C2535023A6A1C100CA6668 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				98C2535223A6A1DC00CA6668 /* Routers */,
+				98C2535123A6A1D200CA6668 /* APICient */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		98C2535123A6A1D200CA6668 /* APICient */ = {
+			isa = PBXGroup;
+			children = (
+				98C2535723A6A2B800CA6668 /* APICient.swift */,
+			);
+			path = APICient;
+			sourceTree = "<group>";
+		};
+		98C2535223A6A1DC00CA6668 /* Routers */ = {
+			isa = PBXGroup;
+			children = (
+				98C2535323A6A1F400CA6668 /* APIRouter.swift */,
+				98C2535523A6A20300CA6668 /* UserAPIRouter.swift */,
+			);
+			path = Routers;
+			sourceTree = "<group>";
+		};
+		98C2535923A6A32E00CA6668 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				98C2535A23A6A33E00CA6668 /* DateFormatter.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		98C2535C23A6A37E00CA6668 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				98C2535E23A6A3A700CA6668 /* UserDTOTest.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		98C2535D23A6A38900CA6668 /* JSONs */ = {
+			isa = PBXGroup;
+			children = (
+				98C2536023A6A3E200CA6668 /* valid_user.json */,
+				98C2536123A6A3E200CA6668 /* invalid_user.json */,
+			);
+			path = JSONs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,6 +324,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98C2536323A6A3E200CA6668 /* invalid_user.json in Resources */,
+				98C2536223A6A3E200CA6668 /* valid_user.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,7 +400,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98C2535B23A6A33E00CA6668 /* DateFormatter.swift in Sources */,
+				98C2534F23A6A0F600CA6668 /* LocationDTO.swift in Sources */,
+				98C2535423A6A1F400CA6668 /* APIRouter.swift in Sources */,
+				98C2534D23A6A0AF00CA6668 /* UserDTO.swift in Sources */,
 				98C2534A23A69B8400CA6668 /* UserRepository.swift in Sources */,
+				98C2535823A6A2B800CA6668 /* APICient.swift in Sources */,
+				98C2535623A6A20300CA6668 /* UserAPIRouter.swift in Sources */,
 				98C2534723A69B6700CA6668 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -327,7 +415,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				98C2533623A69A7300CA6668 /* CoreTests.swift in Sources */,
+				98C2535F23A6A3A700CA6668 /* UserDTOTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -30,6 +30,8 @@
 		98C252EB23A691CF00CA6668 /* MockUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C252EA23A691CF00CA6668 /* MockUser.swift */; };
 		98C2534223A69AAC00CA6668 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98C2534123A69AAC00CA6668 /* Core.framework */; };
 		98C2534323A69AAC00CA6668 /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 98C2534123A69AAC00CA6668 /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		98C2536423A6A49C00CA6668 /* MockUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C252EA23A691CF00CA6668 /* MockUser.swift */; };
+		98C2536623A6A59600CA6668 /* MockUserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C2536523A6A59600CA6668 /* MockUserDTO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +86,7 @@
 		98C252E823A691B800CA6668 /* MockRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRepository.swift; sourceTree = "<group>"; };
 		98C252EA23A691CF00CA6668 /* MockUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUser.swift; sourceTree = "<group>"; };
 		98C2534123A69AAC00CA6668 /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		98C2536523A6A59600CA6668 /* MockUserDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserDTO.swift; sourceTree = "<group>"; };
 		AB9F7C93ED9606D3F9964CC3 /* Pods_RandomUserApp_RandomUserAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RandomUserApp_RandomUserAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B533CBB30D7E759E879040E6 /* Pods_RandomUserApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RandomUserApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC002AD5E751216E05F56A9C /* Pods-RandomUserApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RandomUserApp.debug.xcconfig"; path = "Target Support Files/Pods-RandomUserApp/Pods-RandomUserApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -314,6 +317,7 @@
 			children = (
 				98C252E823A691B800CA6668 /* MockRepository.swift */,
 				98C252EA23A691CF00CA6668 /* MockUser.swift */,
+				98C2536523A6A59600CA6668 /* MockUserDTO.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -509,6 +513,7 @@
 			files = (
 				98C252DC23A68B2600CA6668 /* NibLoadableView.swift in Sources */,
 				98C252C723A686AE00CA6668 /* UserListProtocols.swift in Sources */,
+				98C2536423A6A49C00CA6668 /* MockUser.swift in Sources */,
 				98C252DA23A68B2600CA6668 /* ReusableView.swift in Sources */,
 				98C252D423A688D800CA6668 /* UserTableViewCell.swift in Sources */,
 				98C252CB23A686AE00CA6668 /* UserListPresenter.swift in Sources */,
@@ -526,6 +531,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98C2536623A6A59600CA6668 /* MockUserDTO.swift in Sources */,
 				98C252E223A68B7E00CA6668 /* UserListTest.swift in Sources */,
 				98C252EB23A691CF00CA6668 /* MockUser.swift in Sources */,
 				98C252E923A691B800CA6668 /* MockRepository.swift in Sources */,

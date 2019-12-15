@@ -16,4 +16,19 @@ class MockUser: User {
     var phone = "1234"
     var gender = "male"
     var registered = Date()
+    
+    convenience init(dto: UserDTO) {
+        self.init()
+        self.city = dto.location.city
+        self.state = dto.location.state
+        self.street = dto.location.street.name
+        self.name = dto.firstName
+        self.surname = dto.surname
+        self.email = dto.email
+        self.picture = dto.photo
+        self.thumbnail = dto.thumbnail
+        self.phone = dto.phone
+        self.gender = dto.gender
+        self.registered = dto.registeredDate
+    }
 }

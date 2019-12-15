@@ -1,14 +1,16 @@
 import Foundation
+import PromiseKit
 
 @testable import Core
 @testable import RandomUserApp
 
 class MockUserRepository: UserRepositoryProtocol {
+    
     let numberOfStoredUsers: Int
     let numberOfUsersForResponse: Int
     
-     func loadUsers() -> [User] {                
-        return Array(repeating: MockUser(), count: numberOfStoredUsers)
+    func fetchUsers() -> Promise<Core.Result> {
+        return Promise.value(Core.Result(results: Array(repeating: UserDTO(name: ""), count: numberOfStoredUsers)))
     }
     
     init(_ numberOfstoredUsers: Int,

@@ -7,7 +7,9 @@ class UserListInteractor: UserListInteractorProtocol {
     var repository: UserRepositoryProtocol = UserRepository()
     
     func loadUsers() {
-        let users = repository.loadUsers()
-        presenter?.founded(users)
+        repository.fetchUsers().done { result in
+            let users = result.results.map{ MockUser(dto: $0)}
+            self.presenter?.founded(users)
+        }
     }
 }

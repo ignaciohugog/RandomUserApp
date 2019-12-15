@@ -1,0 +1,56 @@
+{
+    "gender": "male",
+    "name": {
+        "title": "Mr",
+        "first": "Eryk",
+        "last": "Sørdal"
+    },
+    "location": {
+        "street": {
+            "number": 4035,
+            "name": "Kampheimveien"
+        },
+        "city": "Høylandet",
+        "state": "Troms - Romsa",
+        "country": "Norway",
+        "postcode": "0483",
+        "coordinates": {
+            "latitude": "71.4088",
+            "longitude": "-87.9252"
+        },
+        "timezone": {
+            "offset": "+9:30",
+            "description": "Adelaide, Darwin"
+        }
+    },
+    "email": "eryk.sordal@example.com",
+    "login": {
+        "uuid": "465b7299-dc04-4de6-a5c6-ad5d0596e115",
+        "username": "beautifulbutterfly391",
+        "password": "vacation",
+        "salt": "Q2uZdtLB",
+        "md5": "305b456f292d5229dbaba01fa88afff0",
+        "sha1": "0f1e3c856ef13ca33c2089f36173c2393e629572",
+        "sha256": "6e64154d5982532232ba9bbd643b31ea820120cdc1895808fcc33099b5628f87"
+    },
+    "dob": {
+        "date": "1957-05-25T16:45:21.851Z",
+        "age": 62
+    },
+    "registered": {
+        "date": "2009-06-01T09:51:13.419Z",
+        "age": 10
+    },
+    "phone": "75990169",
+    "cell": "94256095",
+    "id": {
+        "name": "FN",
+        "value": "25055703798"
+    },
+    "picture": {
+        "large": "https://randomuser.me/api/portraits/men/25.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/men/25.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/men/25.jpg"
+    },
+    "nat": "NO"
+}
