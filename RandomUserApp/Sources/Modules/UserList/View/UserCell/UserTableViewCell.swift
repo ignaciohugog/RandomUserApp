@@ -6,11 +6,11 @@ class UserTableViewCell: UITableViewCell {
     @IBOutlet weak var userPhoneLabel: UILabel!
     @IBOutlet weak var userImageView: UIImageView!
     
-    override func prepareForReuse() {
+    override func prepareForReuse() -> Void {
         userImageView.image = nil
      }
     
-    func configure(_ user: UpcomingDisplayUser) {
+    func configure(_ user: UpcomingDisplayUser) -> Void {
         userNameLabel.text = user.name
         userEmailLabel.text = user.email
         userPhoneLabel.text = user.phone

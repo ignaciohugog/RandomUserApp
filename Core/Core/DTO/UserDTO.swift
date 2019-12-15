@@ -16,21 +16,10 @@ public struct UserDTO: Decodable {
         case email, phone, gender, name, picture, location, registered, login
     }
     
-    enum name: String, CodingKey {
-        case first, last
-    }
-    
-    enum picture: String, CodingKey {
-        case thumbnail, medium
-    }
-    
-    enum registered: String, CodingKey {
-        case date
-    }
-    
-    enum login: String, CodingKey {
-        case uuid
-    }
+    enum login: String, CodingKey { case uuid }
+    enum registered: String, CodingKey { case date }
+    enum name: String, CodingKey { case first, last }
+    enum picture: String, CodingKey { case thumbnail, medium }
 }
 
 extension UserDTO {

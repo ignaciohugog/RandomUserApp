@@ -15,38 +15,38 @@ class UserListInteractor {
 // MARK: UserListInteractorProtocol
 extension UserListInteractor: UserListInteractorProtocol {
     
-    func fetchUsers() {
+    func fetchUsers() -> Void {
         repository.fetchUsers().then {
             self.repository.save(Array(Set($0.results)))
         }.filterValues(isBlackListed).done { users in
             self.presenter?.founded(users)            
         }.catch { error in
-            // TODO: handle error
+            self.presenter?.failure(error)
         }
     }
     
-    func loadUsers() {
+    func loadUsers() -> Void {
         repository.loadUsers().done { users in
             users.isEmpty ? self.fetchUsers() : self.presenter?.founded(users)
         }.catch { error in
-            // TODO: handle error
+            self.presenter?.failure(error)
         }
     }
     
-     func delete(_ user: User) {
+     func delete(_ user: User) -> Void {
         guard let userID = user.userID else { return }
         repository.deleteUser(user).done {
             self.blacklist.insert(userID)
         }.catch { error in
-            // TODO: handle error
+            self.presenter?.failure(error)
         }
     }
     
-    func findUsers(by term: String) {
+    func findUsers(by term: String) -> Void {
         repository.search(by: term).done { users in
             self.presenter?.founded(users)
         }.catch { error in
-            // TODO: handle error
+            self.presenter?.failure(error)
         }
     }
 }

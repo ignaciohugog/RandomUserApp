@@ -8,7 +8,6 @@ class UserListTest: XCTestCase {
     let presenter = UserListPresenter()
     let router = UserListRouter()
     
-
     override func setUp() {
         presenter.view = view
         presenter.router = router
@@ -18,15 +17,10 @@ class UserListTest: XCTestCase {
         interactor.presenter = presenter
         router.viewController = view
         
-        let idleState = IdleState(presenter: presenter)
-        let fetchState = FetchState(presenter: presenter)
-        let searchState = SearchState(presenter: presenter)
-        
-        presenter.state = idleState
-        presenter.idleState = idleState
-        presenter.searchState = searchState
-        presenter.fetchState = fetchState
-        
+        presenter.state = IdleState(presenter: presenter)
+        presenter.searchState = SearchState(presenter: presenter)
+        presenter.fetchState = FetchState(presenter: presenter)
+        presenter.idleState = presenter.state
     }
     
     func test_viewDidLoad_whithNoUsers_rendersZeroUsers() {
@@ -105,19 +99,42 @@ class UserListTest: XCTestCase {
         }
     }
     
-    func test_navigation_whenRowSelected_navigateToPersonView() {
+    func test_navigation_whenRowSelected_navigateToUserView() {
         // Arrange
         let totalUsers = 1
         interactor.repository = MockUserRepository(totalUsers)
+        let navigation = UINavigationController(rootViewController: view)
         // Act
         view.loadViewIfNeeded()
-        
-        // Assert
         onBackground {
             let indexPath = IndexPath(row: 0, section: 0)
             self.tableView().delegate?.tableView?(self.view.tableView, didSelectRowAt: indexPath)
-            guard let navigation = self.router.viewController as? UINavigationController else { return }
+        }
+        // Assert
+        onBackground(0.2) {
             XCTAssert(navigation.topViewController is UserView)
+        }
+    }
+    
+    func test_userView_whenRowSelected_rendersUserView() {
+        // Arrange
+        let totalUsers = 1
+        interactor.repository = MockUserRepository(totalUsers)
+        let navigation = UINavigationController(rootViewController: view)
+        // Act
+        view.loadViewIfNeeded()
+        onBackground {
+            let indexPath = IndexPath(row: 0, section: 0)
+            self.tableView().delegate?.tableView?(self.view.tableView, didSelectRowAt: indexPath)
+        }
+        onBackground(0.2) {
+            navigation.topViewController?.loadViewIfNeeded()
+        }
+        // Assert
+        onBackground(0.3) {
+            let userView = navigation.topViewController as? UserView
+            XCTAssertEqual(userView?.userEmailLabel.text, "anEmail")
+            XCTAssertEqual(userView?.userGenderLabel.text, "male")
         }
     }
     

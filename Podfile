@@ -12,7 +12,7 @@ def commonPods
 end
 
 def uiPods
-  pod 'Kingfisher', '~> 5.0'
+  pod 'Kingfisher', '~> 5.0'  
 end
 
 target 'RandomUserApp' do

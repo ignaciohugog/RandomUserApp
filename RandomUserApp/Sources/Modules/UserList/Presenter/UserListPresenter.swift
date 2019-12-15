@@ -23,7 +23,7 @@ extension UserListPresenter: UserListPresenterProtocol {
         state?.didSelect(at: index)
     }
     
-    func delete(at index: Int) {
+    func delete(at index: Int) -> Void {
         state?.delete(at: index)
     }
     
@@ -43,9 +43,14 @@ extension UserListPresenter: UserListPresenterProtocol {
 
 //MARK: UserListInteractorOutputProtocol
 extension UserListPresenter: UserListInteractorOutputProtocol {
-    func founded(_ users: [User]) {
+    func founded(_ users: [User]) -> Void {
         state?.founded(users)
-    }        
+    }
+    
+    func failure(_ error: Error) -> Void {
+        state = idleState
+        self.view?.showAlert(with: error)
+    }
 }
 
 extension UserListPresenter {

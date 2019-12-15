@@ -49,6 +49,7 @@
 		98CA5BA323A6C25A002C699F /* MockDuplicateUserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CA5BA223A6C25A002C699F /* MockDuplicateUserRepository.swift */; };
 		98CA5BA523A6D399002C699F /* SearchState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CA5BA423A6D399002C699F /* SearchState.swift */; };
 		98CA5BA723A6D903002C699F /* AppDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CA5BA623A6D903002C699F /* AppDependencies.swift */; };
+		98CA5BAE23A6EC81002C699F /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CA5BAD23A6EC81002C699F /* BaseView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +122,7 @@
 		98CA5BA223A6C25A002C699F /* MockDuplicateUserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDuplicateUserRepository.swift; sourceTree = "<group>"; };
 		98CA5BA423A6D399002C699F /* SearchState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchState.swift; sourceTree = "<group>"; };
 		98CA5BA623A6D903002C699F /* AppDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencies.swift; sourceTree = "<group>"; };
+		98CA5BAD23A6EC81002C699F /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		AB9F7C93ED9606D3F9964CC3 /* Pods_RandomUserApp_RandomUserAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RandomUserApp_RandomUserAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B533CBB30D7E759E879040E6 /* Pods_RandomUserApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RandomUserApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC002AD5E751216E05F56A9C /* Pods-RandomUserApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RandomUserApp.debug.xcconfig"; path = "Target Support Files/Pods-RandomUserApp/Pods-RandomUserApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 				98C252D923A68B2600CA6668 /* UITableViewCell.swift */,
 				98C2537323A6AC2700CA6668 /* AppError.swift */,
 				98CA5B9B23A6B4A4002C699F /* UIImageView.swift */,
+				98CA5BAD23A6EC81002C699F /* BaseView.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -604,6 +607,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				98C252DC23A68B2600CA6668 /* NibLoadableView.swift in Sources */,
+				98CA5BAE23A6EC81002C699F /* BaseView.swift in Sources */,
 				98C2539223A6AEA700CA6668 /* UserProtocols.swift in Sources */,
 				98C252C723A686AE00CA6668 /* UserListProtocols.swift in Sources */,
 				98CA5BA523A6D399002C699F /* SearchState.swift in Sources */,

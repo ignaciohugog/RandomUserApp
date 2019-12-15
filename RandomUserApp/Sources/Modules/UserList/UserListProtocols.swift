@@ -25,10 +25,11 @@ protocol UserListInteractorProtocol: class {
 
 protocol UserListInteractorOutputProtocol: class {
     func founded(_ users: [User]) -> Void
+    func failure(_ error: Error) -> Void
 }
 
 //MARK: View
-protocol UserListViewProtocol: class {
+protocol UserListViewProtocol: BaseView {
     var presenter: UserListPresenterProtocol?  { get set }
     func show(_ persons: [UpcomingDisplayUser]) -> Void
 }

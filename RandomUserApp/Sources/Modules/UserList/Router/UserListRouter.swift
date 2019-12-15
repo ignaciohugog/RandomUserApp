@@ -6,7 +6,7 @@ class UserListRouter {
 }
 
 extension UserListRouter: UserListRouterProtocol{
-    func present(_ user: User) {
+    func present(_ user: User) -> Void{
         let userModule = UserModule.build(user)
         viewController?.navigationController?.pushViewController(userModule, animated: true)
     }

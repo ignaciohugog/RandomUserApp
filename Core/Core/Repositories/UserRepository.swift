@@ -20,7 +20,6 @@ public class UserRepository {
         jsonDecoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Full)
         return jsonDecoder
     }
-    
 }
 
 extension UserRepository: UserRepositoryProtocol {

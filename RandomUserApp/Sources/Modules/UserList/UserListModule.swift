@@ -11,8 +11,7 @@ class UserListModule {
         presenter.view = view
         presenter.router = router
         presenter.interactor = interactor
-        
-        // State        
+                       
         let idleState = IdleState(presenter: presenter)
         let searchState = SearchState(presenter: presenter)
         let fetchState = FetchState(presenter: presenter)

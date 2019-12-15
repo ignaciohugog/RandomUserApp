@@ -15,7 +15,7 @@ enum UserAPIRouter: APIConfiguration {
     var parameters: Parameters? {
         switch self {
         case .users:
-            return ["results" : 10]
+            return ["results" : 20]
         }
     }
 }
