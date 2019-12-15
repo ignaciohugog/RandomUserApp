@@ -5,6 +5,7 @@ public protocol UserRepositoryProtocol {
     func fetchUsers() -> Promise<Result>
     func deleteUser(_ user: User) -> Promise<Void>
     func save(_ users: [UserDTO]) -> Promise<[User]>
+    func search(by term: String) -> Promise<[User]>
 }
 
 public class UserRepository {
@@ -37,5 +38,9 @@ extension UserRepository: UserRepositoryProtocol {
     
     public func deleteUser(_ user: User) -> Promise<Void> {
         return store.deleteUser(user)
+    }
+    
+    public func search(by term: String) -> Promise<[User]> {
+        return store.searchUsers(by: term)
     }
 }

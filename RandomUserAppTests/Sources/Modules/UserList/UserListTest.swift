@@ -19,10 +19,12 @@ class UserListTest: XCTestCase {
         router.viewController = view
         
         let idleState = IdleState(presenter: presenter)
+        let searchState = SearchState(presenter: presenter)
         let fetchState = FeatchingState(presenter: presenter)
         
         presenter.state = idleState
         presenter.idleState = idleState
+        presenter.searchState = searchState
         presenter.fetchingState = fetchState
         
     }
@@ -182,6 +184,70 @@ class UserListTest: XCTestCase {
             let indexPath = IndexPath(row: 0, section: 0)
             self.tableView().prefetchDataSource?.tableView(self.tableView(), prefetchRowsAt: [indexPath])
             XCTAssertEqual(self.tableView().numberOfRows(inSection: 0), 1)
+        }
+    }
+    
+    func test_search_searchByName_renderResultsForGivenName() {
+        // Arrange
+        let store = CoreDataStore(container: MockPersistantContainer())
+        let users = [UserDTO(name:"an"),
+                     UserDTO(name:"ann"),
+                     UserDTO(name:"b")]
+        let _ = store.saveUsers(dtos: users)
+        interactor.repository = UserRepository(store: store)
+        
+        // Act
+        view.loadViewIfNeeded()
+        onBackground {
+            self.view.searchController.searchBar.delegate?.searchBar?(self.view.searchController.searchBar, textDidChange: "a")
+        }
+        
+        // Assert
+        onBackground(0.2) {
+            XCTAssertEqual(self.tableView().numberOfRows(inSection: 0), 2)
+        }
+    }
+    
+    func test_search_searchBySurname_renderResultsForGivenSurname() {
+        // Arrange
+        let store = CoreDataStore(container: MockPersistantContainer())
+        let users = [UserDTO(name: "", surname: "a", email: ""),
+                     UserDTO(name: "", surname: "aan", email: ""),
+                     UserDTO(name: "", surname: "b", email: "")]
+        let _ = store.saveUsers(dtos: users)
+        interactor.repository = UserRepository(store: store)
+        
+        // Act
+        view.loadViewIfNeeded()
+        onBackground {
+            self.view.searchController.searchBar.delegate?.searchBar?(self.view.searchController.searchBar, textDidChange: "a")
+        }
+        
+        // Assert
+        onBackground(0.2) {
+            XCTAssertEqual(self.tableView().numberOfRows(inSection: 0), 2)
+        }
+        
+    }
+    
+    func test_search_searchByEmail_renderResultsForGivenEmail() {
+        // Arrange
+        let store = CoreDataStore(container: MockPersistantContainer())
+        let users = [UserDTO(name: "", surname: "", email: "a"),
+                     UserDTO(name: "", surname: "", email: "aan"),
+                     UserDTO(name: "", surname: "", email: "b")]
+        let _ = store.saveUsers(dtos: users)
+        interactor.repository = UserRepository(store: store)
+        
+        // Act
+        view.loadViewIfNeeded()
+        onBackground {
+            self.view.searchController.searchBar.delegate?.searchBar?(self.view.searchController.searchBar, textDidChange: "a")
+        }
+        
+        // Assert
+        onBackground(0.2) {
+            XCTAssertEqual(self.tableView().numberOfRows(inSection: 0), 2)
         }
     }
     

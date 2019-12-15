@@ -42,4 +42,12 @@ extension UserListInteractor: UserListInteractorProtocol {
             // TODO: handle error
         }
     }
+    
+    func findUsers(by term: String) {
+        repository.search(by: term).done { users in
+            self.presenter?.founded(users)
+        }.catch { error in
+            // TODO: handle error
+        }
+    }
 }

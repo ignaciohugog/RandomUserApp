@@ -3,6 +3,10 @@ import PromiseKit
 @testable import RandomUserApp
 
 class MockFailUserRepository: UserRepositoryProtocol {
+    func search(by term: String) -> Promise<[User]> {
+        return Promise.init(error: AppError.undefined)
+    }
+    
     func deleteUser(_ user: User) -> Promise<Void> {
         return Promise.init(error: AppError.undefined)
     }

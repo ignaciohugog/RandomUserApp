@@ -8,6 +8,12 @@ class MockUserRepository: UserRepositoryProtocol {
     let numberOfStoredUsers: Int
     let numberOfUsersForResponse: Int
     
+    init(_ numberOfstoredUsers: Int,
+         _ numberOfUsersForResponse: Int = 0) {
+        self.numberOfStoredUsers = numberOfstoredUsers
+        self.numberOfUsersForResponse = numberOfUsersForResponse
+    }
+    
     func loadUsers() -> Promise<[User]> {
         var users = [User]()
         Array(0..<numberOfStoredUsers).forEach {
@@ -34,11 +40,7 @@ class MockUserRepository: UserRepositoryProtocol {
         return Promise.init()
     }
     
-    init(_ numberOfstoredUsers: Int,
-         _ numberOfUsersForResponse: Int = 0) {
-        self.numberOfStoredUsers = numberOfstoredUsers
-        self.numberOfUsersForResponse = numberOfUsersForResponse
+    func search(by term: String) -> Promise<[User]> {
+        return Promise.value([User]())
     }
-    
-    
 }

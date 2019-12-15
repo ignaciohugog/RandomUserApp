@@ -57,4 +57,24 @@ extension CoreDataStore {
             }
         }
     }
+    
+    func searchUsers(by term: String) -> Promise<[User]> {
+        return Promise<[User]> { seal in
+            
+            let predicates = [
+                NSPredicate(format: "name beginswith[cd] %@", term),
+                NSPredicate(format: "email beginswith[cd] %@", term),
+                NSPredicate(format: "surname beginswith[cd] %@", term)
+            ]
+                        
+            let request = ManagedUserItem.fetch()
+            request.predicate = NSCompoundPredicate(orPredicateWithSubpredicates:predicates)
+            do {
+                let results = try backgroundContext.fetch(request)
+                seal.fulfill(results)
+            } catch let error {
+                seal.reject(error)
+            }
+        }
+    }
 }

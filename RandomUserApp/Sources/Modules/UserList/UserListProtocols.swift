@@ -11,6 +11,7 @@ protocol UserListPresenterProtocol: class {
     func getUsers() -> Void
     func delete(at index: Int) -> Void
     func didSelect(at index: Int) -> Void
+    func findUsers(by term: String) -> Void
 }
 
 //MARK: Interactor
@@ -19,6 +20,7 @@ protocol UserListInteractorProtocol: class {
     func loadUsers() -> Void
     func fetchUsers() -> Void
     func delete(_ user: User) -> Void
+    func findUsers(by term: String) -> Void
 }
 
 protocol UserListInteractorOutputProtocol: class {

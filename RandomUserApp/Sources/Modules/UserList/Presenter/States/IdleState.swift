@@ -2,8 +2,7 @@ import Foundation
 import Core
 
 class IdleState: UserListInteractorOutputProtocol, UserListPresenterProtocol {
-    
-        
+            
     var users = [User]()
     var presenter: UserListPresenter?
     
@@ -29,5 +28,6 @@ class IdleState: UserListInteractorOutputProtocol, UserListPresenterProtocol {
     
     func getUsers() {}
     func founded(_ users: [User]) {}
+    func findUsers(by term: String) {}
 }
 

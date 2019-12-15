@@ -8,10 +8,11 @@ class UserListPresenter {
         
     var state: IdleState?
     var idleState: IdleState?
+    var searchState: SearchState?
     var fetchingState: FeatchingState?
     
     private var active: Bool {
-        return state is FeatchingState
+        return state is FeatchingState || state is SearchState
     }
 }
 
@@ -24,6 +25,11 @@ extension UserListPresenter: UserListPresenterProtocol {
     
     func delete(at index: Int) {
         state?.delete(at: index)
+    }
+    
+    func findUsers(by term: String) -> Void {
+        state = searchState
+        state?.findUsers(by: term)
     }
     
     func getUsers() -> Void {

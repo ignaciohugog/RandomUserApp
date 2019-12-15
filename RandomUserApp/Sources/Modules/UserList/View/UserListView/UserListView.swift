@@ -3,6 +3,7 @@ import UIKit
 class UserListView: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    var searchController = UISearchController(searchResultsController: nil)
     
     private var prefetchCount = 3
     private var users = [UpcomingDisplayUser]()
@@ -15,7 +16,12 @@ class UserListView: UIViewController {
     }
     
     private func customizeUI() -> Void {
-         tableView.register(UserTableViewCell.self)
+        tableView.register(UserTableViewCell.self)
+        searchController.searchBar.delegate = self
+        searchController.searchBar.placeholder = "Search"
+        searchController.obscuresBackgroundDuringPresentation = false
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
      }
 }
 
@@ -63,5 +69,17 @@ extension UserListView: UITableViewDataSourcePrefetching {
         if indexPaths.contains(where: {$0.row > users.count - prefetchCount}) {
             presenter?.getUsers()
         }
+    }
+}
+
+// MARK: UISearchBarDelegate
+extension UserListView: UISearchBarDelegate {
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+      presenter?.findUsers(by: "")
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+      presenter?.findUsers(by: searchText)
     }
 }
