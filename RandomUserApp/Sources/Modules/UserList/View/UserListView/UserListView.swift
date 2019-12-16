@@ -16,8 +16,9 @@ class UserListView: UIViewController {
     }
     
     private func customizeUI() -> Void {
+        tableView.tableFooterView = UIView()
         tableView.register(UserTableViewCell.self)
-        searchController.searchBar.delegate = self        
+        searchController.searchBar.delegate = self
         searchController.obscuresBackgroundDuringPresentation = false
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
