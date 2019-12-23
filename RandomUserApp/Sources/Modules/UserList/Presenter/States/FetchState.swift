@@ -3,7 +3,7 @@ import Core
 class FetchState: IdleState {
     
     override func getUsers() -> Void {
-        guard let interactor = presenter?.interactor,
+        guard let interactor = presenter?.outputInteractor,
         let usersLoaded = presenter?.idleState?.users else { return }
         
         usersLoaded.isEmpty ? interactor.onNext(.loadUsers) : interactor.onNext(.fetchUsers)

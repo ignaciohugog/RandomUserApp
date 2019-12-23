@@ -11,9 +11,9 @@ class UserListModule {
         let router = UserListRouter()
         let presenter = UserListPresenter()
 
-        presenter.view = view.observer
-        presenter.router = router.observer
-        presenter.interactor = interactor.observer
+        presenter.outputView = view.input
+        presenter.outputRouter = router.input
+        presenter.outputInteractor = interactor.input
                        
         let idleState = IdleState(presenter: presenter)
         let searchState = SearchState(presenter: presenter)
@@ -24,8 +24,8 @@ class UserListModule {
         presenter.fetchState = fetchState
         presenter.searchState = searchState
         
-        view.presenter = presenter.observer
-        interactor.presenter = presenter.observerInteractor
+        view.output = presenter.inputPresenter
+        interactor.output = presenter.inputInteractor
         router.viewController = view
         
         return view

@@ -9,8 +9,8 @@ enum UserListViewEvent {
 class UserListView: UIViewController {
 
     private var disposeBag = DisposeBag()
-    var observer = PublishSubject<UserListViewEvent>()
-    var presenter: PublishSubject<UserListPresenterEvent>?
+    let input = PublishSubject<UserListViewEvent>()
+    var output: PublishSubject<UserListPresenterEvent>?
     
     @IBOutlet weak var tableView: UITableView!
     var searchController = UISearchController(searchResultsController: nil)
@@ -21,7 +21,7 @@ class UserListView: UIViewController {
         super.viewDidLoad()
         subscribe()
         customizeUI()
-        presenter?.onNext(.getUsers)
+        output?.onNext(.getUsers)
     }
     
     private func customizeUI() -> Void {
@@ -34,7 +34,7 @@ class UserListView: UIViewController {
      }
     
     private func subscribe() {
-        observer.subscribe(onNext: { event in
+        input.subscribe(onNext: { event in
             self.handle(event)
         }).disposed(by: disposeBag)
     }
@@ -72,7 +72,7 @@ extension UserListView: UITableViewDataSource {
                    commit editingStyle: UITableViewCell.EditingStyle,
                    forRowAt indexPath: IndexPath) {
         guard editingStyle == .delete else { return }
-        presenter?.onNext(.delete(index: indexPath.row))        
+        output?.onNext(.delete(index: indexPath.row))
         users.remove(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: .fade)
     }
@@ -82,7 +82,7 @@ extension UserListView: UITableViewDataSource {
 extension UserListView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.resignFirstResponder()
-        presenter?.onNext(.didSelect(index: indexPath.row))
+        output?.onNext(.didSelect(index: indexPath.row))
     }
 }
 
@@ -90,7 +90,7 @@ extension UserListView: UITableViewDelegate {
 extension UserListView: UITableViewDataSourcePrefetching {
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         if indexPaths.contains(where: {$0.row > users.count - prefetchCount}) {
-            presenter?.onNext(.getUsers)
+            output?.onNext(.getUsers)
         }
     }
 }
@@ -99,10 +99,10 @@ extension UserListView: UITableViewDataSourcePrefetching {
 extension UserListView: UISearchBarDelegate {
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        presenter?.onNext(.find(term: ""))
+        output?.onNext(.find(term: ""))
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        presenter?.onNext(.find(term: searchText))
+        output?.onNext(.find(term: searchText))
     }
 }

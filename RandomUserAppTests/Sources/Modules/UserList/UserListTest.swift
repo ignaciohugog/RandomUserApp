@@ -10,12 +10,12 @@ class UserListTest: XCTestCase {
     let router = UserListRouter()
     
     override func setUp() {
-        presenter.view = view.observer
-        presenter.router = router.observer
-        presenter.interactor = interactor.observer
+        presenter.outputView = view.input
+        presenter.outputRouter = router.input
+        presenter.outputInteractor = interactor.input
         
-        view.presenter = presenter.observer
-        interactor.presenter = presenter.observerInteractor
+        view.output = presenter.inputPresenter
+        interactor.output = presenter.inputInteractor
         router.viewController = view
         
         presenter.state = IdleState(presenter: presenter)

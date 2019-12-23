@@ -11,12 +11,12 @@ class IdleState {
     }
     
     func didSelect(at index: Int) -> Void{
-        guard let router = presenter?.router else { return }
+        guard let router = presenter?.outputRouter else { return }
         router.onNext(.present(user: users[index]))        
     }
     
     func delete(at index: Int) -> Void {
-        guard let interactor = presenter?.interactor else { return }
+        guard let interactor = presenter?.outputInteractor else { return }
         let user = users.remove(at: index)
         interactor.onNext(.delete(user))
     }
@@ -24,11 +24,11 @@ class IdleState {
     func show() -> Void {
         guard let presenter = presenter else { return  }
         let users = self.users.map{ presenter.prepareForView($0) }
-        presenter.view?.onNext(.show(users))        
+        presenter.outputView?.onNext(.show(users))
     }
     
     func failure(_ error: Error) -> Void {
-        presenter?.observerInteractor.onNext(.failure(error))        
+        presenter?.inputInteractor.onNext(.failure(error))
     }
     
     func getUsers() -> Void {}

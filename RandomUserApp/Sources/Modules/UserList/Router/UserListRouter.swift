@@ -8,11 +8,11 @@ enum UserListRouterEvent {
 
 class UserListRouter {
     private let disposeBag = DisposeBag()
-    let observer = PublishSubject<UserListRouterEvent>()
+    let input = PublishSubject<UserListRouterEvent>()
     weak var viewController: UIViewController?
     
     init() {
-        observer.subscribe(onNext: { event in
+        input.subscribe(onNext: { event in
             switch event {
             case let .present(user):
                 let userModule = UserModule.build(user)

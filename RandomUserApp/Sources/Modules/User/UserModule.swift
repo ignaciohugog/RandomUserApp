@@ -1,16 +1,5 @@
 import UIKit
 import Core
-import RxSwift
-
-class UserViewSubject {
-    let disposeBag = DisposeBag()
-    let subject = PublishSubject<UserViewEvent>()
-}
-
-class UserPresenterSubject {
-    let disposeBag = DisposeBag()
-    let subject = PublishSubject<UserPresenterEvent>()
-}
 
 class UserModule {
 
@@ -20,8 +9,8 @@ class UserModule {
         let presenter = UserPresenter()
                                 
         presenter.user = user
-        presenter.view = view.observer
-        view.presenter = presenter.observer
+        presenter.output = view.input
+        view.output = presenter.input
         
         return view
     }    

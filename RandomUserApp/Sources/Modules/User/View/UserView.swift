@@ -1,4 +1,5 @@
 import UIKit
+import RxSwift
 
 enum UserViewEvent {
     case show(user: UpcomingDisplayUserDetail)
@@ -6,8 +7,9 @@ enum UserViewEvent {
 
 class UserView: UIViewController {
         
-    var observer = UserViewSubject()
-    var presenter: UserPresenterSubject?
+    private var disposeBag = DisposeBag()
+    let input = PublishSubject<UserViewEvent>()
+    var output: PublishSubject<UserPresenterEvent>?
             
     @IBOutlet weak var userEmailLabel: UILabel!
     @IBOutlet weak var userGenderLabel: UILabel!
@@ -17,14 +19,12 @@ class UserView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        subscribe()
-        presenter?.subject.onNext(.viewDidLoad)
-    }
-    
-    private func subscribe() {
-        observer.subject.subscribe(onNext: { event in
+        
+        input.subscribe(onNext: { event in
             self.handle(event)
-        }).disposed(by: observer.disposeBag)
+        }).disposed(by: disposeBag)
+        
+        output?.onNext(.viewDidLoad)
     }
     
     private func handle(_ event: UserViewEvent) {

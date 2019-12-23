@@ -24,7 +24,7 @@ class SearchState: IdleState {
             return
         }
         
-        presenter?.interactor?.onNext(.findUsers(term: term))
+        presenter?.outputInteractor?.onNext(.findUsers(term: term))
                 
     }
 }

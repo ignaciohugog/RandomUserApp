@@ -16,12 +16,12 @@ enum UserListInteractorOutputEvent {
 class UserListPresenter {
 
     private var disposeBag = DisposeBag()
-    var observer = PublishSubject<UserListPresenterEvent>()
-    var observerInteractor = PublishSubject<UserListInteractorOutputEvent>()
+    var inputPresenter = PublishSubject<UserListPresenterEvent>()
+    var inputInteractor = PublishSubject<UserListInteractorOutputEvent>()
     
-    var view: PublishSubject<UserListViewEvent>?
-    var interactor: PublishSubject<UserListInteractorEvent>?
-    var router: PublishSubject<UserListRouterEvent>?
+    var outputView: PublishSubject<UserListViewEvent>?
+    var outputRouter: PublishSubject<UserListRouterEvent>?
+    var outputInteractor: PublishSubject<UserListInteractorEvent>?
         
     var state: IdleState?
     var idleState: IdleState?
@@ -33,11 +33,11 @@ class UserListPresenter {
     }
     
     init() {
-        observer.subscribe(onNext: { event in
+        inputPresenter.subscribe(onNext: { event in
             self.handle(event)
         }).disposed(by: disposeBag)
         
-        observerInteractor.subscribe(onNext: { event in
+        inputInteractor.subscribe(onNext: { event in
             self.handle(event)
         }).disposed(by: disposeBag)
     }
@@ -48,7 +48,7 @@ class UserListPresenter {
             self.state?.founded(users)
         case let .failure(error):
             state = idleState
-            self.view?.onNext(.failure(error))
+            self.outputView?.onNext(.failure(error))
         }
     }
     

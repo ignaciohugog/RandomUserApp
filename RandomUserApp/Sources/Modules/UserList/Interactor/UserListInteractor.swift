@@ -9,10 +9,10 @@ enum UserListInteractorEvent {
 }
 
 class UserListInteractor {
-    private var blacklist = Set<UUID>()    
+    private var blacklist = Set<UUID>()
     private var disposeBag = DisposeBag()
-    var observer = PublishSubject<UserListInteractorEvent>()
-    var presenter: PublishSubject<UserListInteractorOutputEvent>?
+    let input = PublishSubject<UserListInteractorEvent>()
+    var output: PublishSubject<UserListInteractorOutputEvent>?
     
     var repository: UserRepositoryProtocol = ServiceLocator.inject()
     
@@ -22,7 +22,7 @@ class UserListInteractor {
     }
     
     init() {
-        observer.subscribe(onNext: { event in
+        input.subscribe(onNext: { event in
             self.handle(event)
         }).disposed(by: disposeBag)
     }
@@ -47,17 +47,17 @@ class UserListInteractor {
         }.flatMap {
             self.repository.save($0)
         }.subscribe(onSuccess: { users in
-            self.presenter?.onNext(.founded(users))
+            self.output?.onNext(.founded(users))
         }) { error in
-            self.presenter?.onNext(.failure(error))
+            self.output?.onNext(.failure(error))
         }.disposed(by: disposeBag)
     }
     
     private func loadUsers() -> Void {
         repository.loadUsers().subscribe(onSuccess: { users in
-            users.isEmpty ? self.fetchUsers() : self.presenter?.onNext(.founded(users))
+            users.isEmpty ? self.fetchUsers() : self.output?.onNext(.founded(users))
         }) { error in
-            self.presenter?.onNext(.failure(error))
+            self.output?.onNext(.failure(error))
         }.disposed(by: disposeBag)
     }
     
@@ -67,16 +67,16 @@ class UserListInteractor {
         repository.deleteUser(user).subscribe(onCompleted: {
             self.blacklist.insert(userID)
         }) { error in
-            self.presenter?.onNext(.failure(error))
+            self.output?.onNext(.failure(error))
         }.disposed(by: disposeBag)
     }
     
     private func findUsers(by term: String) -> Void {
         
         repository.search(by: term).subscribe(onSuccess: { users in
-            self.presenter?.onNext(.founded(users))
+            self.output?.onNext(.founded(users))
         }) { error in
-            self.presenter?.onNext(.failure(error))
+            self.output?.onNext(.failure(error))
         }.disposed(by: disposeBag)
     }
 }

@@ -1,4 +1,5 @@
 import Core
+import RxSwift
 
 enum UserPresenterEvent {
     case viewDidLoad
@@ -9,24 +10,24 @@ class UserPresenter {
     var user: User?
     let formatter = DateFormatter()
     
-    var view: UserViewSubject?
-    var observer = UserPresenterSubject()
+    private var disposeBag = DisposeBag()
+    var output: PublishSubject<UserViewEvent>?
+    var input = PublishSubject<UserPresenterEvent>()
     
     init() {
-        subscribe()
-        formatter.dateStyle = .short        
+        formatter.dateStyle = .short
+        
+        input.subscribe(onNext: { event in
+            switch event {
+            case .viewDidLoad:self.viewDidLoad()
+            }
+        }).disposed(by: disposeBag)
     }
     
-    func subscribe() {
-        observer.subject.subscribe(onNext: { event in
-            switch event {
-            case .viewDidLoad:
-                guard let user = self.user else { return }
-                self.view?.subject.onNext(.show(user: self.prepareForView(user)))
-            }
-        }).disposed(by: observer.disposeBag)
-    }
-        
+    private func viewDidLoad() {
+        guard let user = self.user else { return }
+        self.output?.onNext(.show(user: self.prepareForView(user)))
+    }        
 }
 
 extension UserPresenter {
