@@ -36,7 +36,6 @@
 		98C2537223A6ABB100CA6668 /* MockFailUserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C2537123A6ABB100CA6668 /* MockFailUserRepository.swift */; };
 		98C2537423A6AC2700CA6668 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C2537323A6AC2700CA6668 /* AppError.swift */; };
 		98C2537723A6AC6000CA6668 /* MockPersistantContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C2537623A6AC6000CA6668 /* MockPersistantContainer.swift */; };
-		98C2539223A6AEA700CA6668 /* UserProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C2538723A6AEA600CA6668 /* UserProtocols.swift */; };
 		98C2539323A6AEA700CA6668 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C2538923A6AEA600CA6668 /* UserView.swift */; };
 		98C2539423A6AEA700CA6668 /* UserView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98C2538A23A6AEA600CA6668 /* UserView.xib */; };
 		98C2539523A6AEA700CA6668 /* UserPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C2538C23A6AEA700CA6668 /* UserPresenter.swift */; };
@@ -109,7 +108,6 @@
 		98C2537123A6ABB100CA6668 /* MockFailUserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFailUserRepository.swift; sourceTree = "<group>"; };
 		98C2537323A6AC2700CA6668 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		98C2537623A6AC6000CA6668 /* MockPersistantContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPersistantContainer.swift; sourceTree = "<group>"; };
-		98C2538723A6AEA600CA6668 /* UserProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProtocols.swift; sourceTree = "<group>"; };
 		98C2538923A6AEA600CA6668 /* UserView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
 		98C2538A23A6AEA600CA6668 /* UserView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserView.xib; sourceTree = "<group>"; };
 		98C2538C23A6AEA700CA6668 /* UserPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPresenter.swift; sourceTree = "<group>"; };
@@ -381,7 +379,6 @@
 			isa = PBXGroup;
 			children = (
 				98C2539123A6AEA700CA6668 /* UserModule.swift */,
-				98C2538723A6AEA600CA6668 /* UserProtocols.swift */,
 				98C2538823A6AEA600CA6668 /* View */,
 				98C2538B23A6AEA700CA6668 /* Presenter */,
 			);
@@ -608,7 +605,6 @@
 			files = (
 				98C252DC23A68B2600CA6668 /* NibLoadableView.swift in Sources */,
 				98CA5BAE23A6EC81002C699F /* BaseView.swift in Sources */,
-				98C2539223A6AEA700CA6668 /* UserProtocols.swift in Sources */,
 				98C252C723A686AE00CA6668 /* UserListProtocols.swift in Sources */,
 				98CA5BA523A6D399002C699F /* SearchState.swift in Sources */,
 				98C2539323A6AEA700CA6668 /* UserView.swift in Sources */,

@@ -1,20 +1,34 @@
 import Core
+import RxSwift
 
-class UserPresenter: UserPresenterProtocol {
+enum UserPresenterEvent {
+    case viewDidLoad
+}
+
+class UserPresenter {
 
     var user: User?
-    weak var view: UserViewProtocol?
-    
     let formatter = DateFormatter()
     
-    init() {
-        formatter.dateStyle = .short
+    var view: PublishSubject<UserViewEvent>?
+    
+    private let disposeBag = DisposeBag()
+    
+    init(_ subject: PublishSubject<UserPresenterEvent>) {
+        subscribe(subject)
+        formatter.dateStyle = .short        
     }
     
-    func viewDidLoad() -> Void {
-        guard let user = user else { return }
-        view?.show(prepareForView(user))
+    func subscribe(_ subject: PublishSubject<UserPresenterEvent>) {
+        subject.subscribe(onNext: { event in
+            switch event {
+            case .viewDidLoad:
+                guard let user = self.user else { return }
+                self.view?.onNext(.show(user: self.prepareForView(user)))
+            }
+            }).disposed(by: disposeBag)
     }
+        
 }
 
 extension UserPresenter {

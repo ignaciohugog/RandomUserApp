@@ -12,13 +12,17 @@ PODS:
     - PromiseKit/CorePromise
   - PromiseKit/UIKit (6.12.0):
     - PromiseKit/CorePromise
+  - RxSwift (5.0.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5.0.0-rc.2)
   - Kingfisher (~> 5.0)
   - PromiseKit (~> 6.8)
+  - RxSwift (~> 5)
 
 SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - RxSwift
   trunk:
     - Alamofire
     - Kingfisher
@@ -28,7 +32,8 @@ SPEC CHECKSUMS:
   Alamofire: ca8c0de6906873be89d6deec5c8de279e00bf872
   Kingfisher: dc6e0f53bb5b12c3e75bedb0e01bbd7a640eea69
   PromiseKit: c06835ba442ce5454ce3cdde470232804a6e4ff8
+  RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
 
-PODFILE CHECKSUM: 826794f67b2091dc381f9cfbdc4a77235719127d
+PODFILE CHECKSUM: 4ebcd43b21eb90d663cd8800e78e0d8c737b00a2
 
 COCOAPODS: 1.8.4
