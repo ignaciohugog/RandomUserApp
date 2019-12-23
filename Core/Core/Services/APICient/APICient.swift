@@ -1,5 +1,4 @@
 import Alamofire
-import PromiseKit
 import RxSwift
 
 class APIClient {

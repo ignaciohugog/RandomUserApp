@@ -1,4 +1,3 @@
-import PromiseKit
 import RxSwift
 
 public protocol UserRepositoryProtocol {

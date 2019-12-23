@@ -1,5 +1,4 @@
 import CoreData
-import PromiseKit
 import RxSwift
 
 public class CoreDataStore {

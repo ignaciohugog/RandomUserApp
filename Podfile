@@ -9,7 +9,6 @@ workspace 'RandomUserApp'
 def commonPods
   pod 'RxSwift', '~> 5'
   pod 'Alamofire', '~> 5.0.0-rc.2'
-  pod 'PromiseKit', '~> 6.8'
 end
 
 def uiPods
