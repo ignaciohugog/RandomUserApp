@@ -1,5 +1,5 @@
 import Foundation
-import PromiseKit
+import RxSwift
 @testable import Core
 @testable import RandomUserApp
 
@@ -14,33 +14,49 @@ class MockUserRepository: UserRepositoryProtocol {
         self.numberOfUsersForResponse = numberOfUsersForResponse
     }
     
-    func loadUsers() -> Promise<[User]> {
+    func loadUsers() -> Single<[User]> {
         var users = [User]()
         Array(0..<numberOfStoredUsers).forEach {
             users.append(MockUser(name: "\($0)"))
         }
         
-        return Promise.value(users)
+        return Single.create {
+            $0(.success(users))
+            return Disposables.create {}
+        }
     }
       
-    func fetchUsers() -> Promise<Core.Result> {
+    func fetchUsers() -> Single<Core.Result> {
         var users = [UserDTO]()
         Array(0..<numberOfUsersForResponse).forEach {
             users.append(UserDTO(name: "\($0)"))
         }
         
-        return Promise.value(Core.Result(results: users))
+        return Single.create {
+            $0(.success(Core.Result(results: users)))
+            return Disposables.create {}
+        }
     }
     
-    func save(_ users: [UserDTO]) -> Promise<[User]> {
-        return Promise.value(users.map{MockUser(dto: $0)})
+    func save(_ users: [UserDTO]) -> Single<[User]> {
+        let users = users.map{MockUser(dto: $0)}
+        return Single.create {
+            $0(.success(users))
+            return Disposables.create {}
+        }
     }
     
-    func deleteUser(_ user: User) -> Promise<Void> {
-        return Promise.init()
+    func deleteUser(_ user: User) -> Completable {
+        return Completable.create {
+            $0(.completed)
+            return Disposables.create {}
+        }
     }
     
-    func search(by term: String) -> Promise<[User]> {
-        return Promise.value([User]())
+    func search(by term: String) -> Single<[User]> {
+        return Single.create {
+            $0(.success([User]()))
+            return Disposables.create {}
+        }
     }
 }

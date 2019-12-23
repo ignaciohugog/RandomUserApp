@@ -6,7 +6,7 @@ class FetchState: IdleState {
         guard let interactor = presenter?.interactor,
         let usersLoaded = presenter?.idleState?.users else { return }
         
-        usersLoaded.isEmpty ? interactor.loadUsers() : interactor.fetchUsers()
+        usersLoaded.isEmpty ? interactor.onNext(.loadUsers) : interactor.onNext(.fetchUsers)
     }
     
     override func didSelect(at index: Int) -> Void {

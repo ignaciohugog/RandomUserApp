@@ -13,7 +13,6 @@
 		98097D1723A680050024A0ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98097D1623A680050024A0ED /* Assets.xcassets */; };
 		98097D1A23A680050024A0ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98097D1823A680050024A0ED /* LaunchScreen.storyboard */; };
 		98C252C623A686AE00CA6668 /* UserListModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C252BB23A686AE00CA6668 /* UserListModule.swift */; };
-		98C252C723A686AE00CA6668 /* UserListProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C252BC23A686AE00CA6668 /* UserListProtocols.swift */; };
 		98C252C823A686AE00CA6668 /* UserListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98C252BE23A686AE00CA6668 /* UserListView.xib */; };
 		98C252C923A686AE00CA6668 /* UserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C252BF23A686AE00CA6668 /* UserListView.swift */; };
 		98C252CA23A686AE00CA6668 /* UserListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C252C123A686AE00CA6668 /* UserListRouter.swift */; };
@@ -87,7 +86,6 @@
 		98097D2023A680050024A0ED /* RandomUserAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RandomUserAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		98097D2623A680050024A0ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		98C252BB23A686AE00CA6668 /* UserListModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListModule.swift; sourceTree = "<group>"; };
-		98C252BC23A686AE00CA6668 /* UserListProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListProtocols.swift; sourceTree = "<group>"; };
 		98C252BE23A686AE00CA6668 /* UserListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserListView.xib; sourceTree = "<group>"; };
 		98C252BF23A686AE00CA6668 /* UserListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListView.swift; sourceTree = "<group>"; };
 		98C252C123A686AE00CA6668 /* UserListRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListRouter.swift; sourceTree = "<group>"; };
@@ -267,7 +265,6 @@
 			isa = PBXGroup;
 			children = (
 				98C252BB23A686AE00CA6668 /* UserListModule.swift */,
-				98C252BC23A686AE00CA6668 /* UserListProtocols.swift */,
 				98C252BD23A686AE00CA6668 /* View */,
 				98C252C423A686AE00CA6668 /* Interactor */,
 				98C252C223A686AE00CA6668 /* Presenter */,
@@ -605,7 +602,6 @@
 			files = (
 				98C252DC23A68B2600CA6668 /* NibLoadableView.swift in Sources */,
 				98CA5BAE23A6EC81002C699F /* BaseView.swift in Sources */,
-				98C252C723A686AE00CA6668 /* UserListProtocols.swift in Sources */,
 				98CA5BA523A6D399002C699F /* SearchState.swift in Sources */,
 				98C2539323A6AEA700CA6668 /* UserView.swift in Sources */,
 				98CA5BA123A6BB5B002C699F /* IdleState.swift in Sources */,

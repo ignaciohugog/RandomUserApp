@@ -1,7 +1,7 @@
 import Foundation
 import Core
 
-class IdleState: UserListInteractorOutputProtocol, UserListPresenterProtocol {
+class IdleState {
             
     var users = [User]()
     var presenter: UserListPresenter?
@@ -12,23 +12,23 @@ class IdleState: UserListInteractorOutputProtocol, UserListPresenterProtocol {
     
     func didSelect(at index: Int) -> Void{
         guard let router = presenter?.router else { return }
-        router.present(users[index])
+        router.onNext(.present(user: users[index]))        
     }
     
     func delete(at index: Int) -> Void {
         guard let interactor = presenter?.interactor else { return }
         let user = users.remove(at: index)
-        interactor.delete(user)
+        interactor.onNext(.delete(user))
     }
     
     func show() -> Void {
         guard let presenter = presenter else { return  }
         let users = self.users.map{ presenter.prepareForView($0) }
-        presenter.view?.show(users)
+        presenter.view?.onNext(.show(users))        
     }
     
     func failure(_ error: Error) -> Void {
-        presenter?.failure(error)
+        presenter?.observerInteractor.onNext(.failure(error))        
     }
     
     func getUsers() -> Void {}

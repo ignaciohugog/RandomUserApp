@@ -1,52 +1,82 @@
-import UIKit
 import Core
+import RxSwift
+
+enum UserListInteractorEvent {
+    case fetchUsers
+    case loadUsers
+    case delete(_ user: User)
+    case findUsers(term: String)
+}
 
 class UserListInteractor {
-    private var blacklist = Set<UUID>()
-    weak var presenter: UserListInteractorOutputProtocol?
+    private var blacklist = Set<UUID>()    
+    private var disposeBag = DisposeBag()
+    var observer = PublishSubject<UserListInteractorEvent>()
+    var presenter: PublishSubject<UserListInteractorOutputEvent>?
+    
     var repository: UserRepositoryProtocol = ServiceLocator.inject()
     
     private func isBlackListed(_ user: User) -> Bool {
         guard let userId = user.userID else { return false }
         return !self.blacklist.contains(userId)
     }
-}
-
-// MARK: UserListInteractorProtocol
-extension UserListInteractor: UserListInteractorProtocol {
     
-    func fetchUsers() -> Void {
-        repository.fetchUsers().then {
-            self.repository.save(Array(Set($0.results)))
-        }.filterValues(isBlackListed).done { users in
-            self.presenter?.founded(users)            
-        }.catch { error in
-            self.presenter?.failure(error)
+    init() {
+        observer.subscribe(onNext: { event in
+            self.handle(event)
+        }).disposed(by: disposeBag)
+    }
+    
+    private func handle(_ event: UserListInteractorEvent) {
+        switch event {
+        case .fetchUsers:
+            self.fetchUsers()
+        case .loadUsers:
+            self.loadUsers()
+        case let .delete(user):
+            self.delete(user)
+        case let .findUsers(term):
+            self.findUsers(by: term)
         }
     }
     
-    func loadUsers() -> Void {
-        repository.loadUsers().done { users in
-            users.isEmpty ? self.fetchUsers() : self.presenter?.founded(users)
-        }.catch { error in
-            self.presenter?.failure(error)
-        }
+    // TODO: BlackListed
+    private func fetchUsers() -> Void {
+        repository.fetchUsers().map {
+            Array(Set($0.results))
+        }.flatMap {
+            self.repository.save($0)
+        }.subscribe(onSuccess: { users in
+            self.presenter?.onNext(.founded(users))
+        }) { error in
+            self.presenter?.onNext(.failure(error))
+        }.disposed(by: disposeBag)
     }
     
-     func delete(_ user: User) -> Void {
+    private func loadUsers() -> Void {
+        repository.loadUsers().subscribe(onSuccess: { users in
+            users.isEmpty ? self.fetchUsers() : self.presenter?.onNext(.founded(users))
+        }) { error in
+            self.presenter?.onNext(.failure(error))
+        }.disposed(by: disposeBag)
+    }
+    
+     private func delete(_ user: User) -> Void {
         guard let userID = user.userID else { return }
-        repository.deleteUser(user).done {
+                
+        repository.deleteUser(user).subscribe(onCompleted: {
             self.blacklist.insert(userID)
-        }.catch { error in
-            self.presenter?.failure(error)
-        }
+        }) { error in
+            self.presenter?.onNext(.failure(error))
+        }.disposed(by: disposeBag)
     }
     
-    func findUsers(by term: String) -> Void {
-        repository.search(by: term).done { users in
-            self.presenter?.founded(users)
-        }.catch { error in
-            self.presenter?.failure(error)
-        }
+    private func findUsers(by term: String) -> Void {
+        
+        repository.search(by: term).subscribe(onSuccess: { users in
+            self.presenter?.onNext(.founded(users))
+        }) { error in
+            self.presenter?.onNext(.failure(error))
+        }.disposed(by: disposeBag)
     }
 }

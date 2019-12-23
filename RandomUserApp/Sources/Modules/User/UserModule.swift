@@ -2,18 +2,26 @@ import UIKit
 import Core
 import RxSwift
 
+class UserViewSubject {
+    let disposeBag = DisposeBag()
+    let subject = PublishSubject<UserViewEvent>()
+}
+
+class UserPresenterSubject {
+    let disposeBag = DisposeBag()
+    let subject = PublishSubject<UserPresenterEvent>()
+}
+
 class UserModule {
 
     static func build(_ user: User) -> UIViewController {
-        let viewSubject = PublishSubject<UserViewEvent>()
-        let presenterSubject = PublishSubject<UserPresenterEvent>()
                         
-        let view = UserView(viewSubject)
-        let presenter = UserPresenter(presenterSubject)
+        let view = UserView()
+        let presenter = UserPresenter()
                                 
         presenter.user = user
-        presenter.view = viewSubject
-        view.presenter = presenterSubject
+        presenter.view = view.observer
+        view.presenter = presenter.observer
         
         return view
     }    

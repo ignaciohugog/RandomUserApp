@@ -1,5 +1,6 @@
 import CoreData
 import PromiseKit
+import RxSwift
 
 public class CoreDataStore {
   
@@ -16,50 +17,54 @@ public class CoreDataStore {
 
 extension CoreDataStore {
 
-    func saveUsers(dtos: [UserDTO]) -> Promise<[User]> {
-        return Promise<[User]> { seal in
+    func saveUsers(dtos: [UserDTO]) -> Single<[User]> {
+        return Single<[User]>.create { single in
             let users: [User] = dtos.map {
                 let user = NSEntityDescription.insertNewObject(forEntityName: ManagedUserItem.entityName,
-                                                               into: backgroundContext) as! ManagedUserItem
+                                                               into: self.backgroundContext) as! ManagedUserItem
                 user.configure(dto: $0)
                 return user
             }
             do {
-                try backgroundContext.save()
-                seal.fulfill(users)
+                try self.backgroundContext.save()
+                single(.success(users))                
             } catch let error {
-                seal.reject(error)
+                single(.error(error))
             }
+            
+            return Disposables.create {}
         }
     }
     
-    func fetchUsers() -> Promise<[User]> {
+    func fetchUsers() -> Single<[User]> {
         
-        return Promise<[User]> { seal in
+        return Single<[User]>.create { single in
             do {
-                let results = try backgroundContext.fetch(ManagedUserItem.fetch())
-                seal.fulfill(results)
+                let results = try self.backgroundContext.fetch(ManagedUserItem.fetch())
+                single(.success(results))
             } catch let error {
-                seal.reject(error)
+                single(.error(error))
             }
+            return Disposables.create {}
         }
     }
     
-    func deleteUser(_ user: User) -> Promise<Void> {
-        return Promise<Void> { seal in
-            guard let user = user as? ManagedUserItem else { return }
-            backgroundContext.delete(user)
+    func deleteUser(_ user: User) -> Completable {
+        return Completable.create { completable in
+            let user = user as! ManagedUserItem
+            self.backgroundContext.delete(user)
             do {
-                try backgroundContext.save()
-                seal.fulfill_()
+                try self.backgroundContext.save()
+                completable(.completed)
             } catch let error {
-                seal.reject(error)
+                completable(.error(error))
             }
+            return Disposables.create {}
         }
     }
     
-    func searchUsers(by term: String) -> Promise<[User]> {
-        return Promise<[User]> { seal in
+    func searchUsers(by term: String) -> Single<[User]> {
+        return Single<[User]>.create { single in
             
             let predicates = [
                 NSPredicate(format: "name beginswith[cd] %@", term),
@@ -70,11 +75,12 @@ extension CoreDataStore {
             let request = ManagedUserItem.fetch()
             request.predicate = NSCompoundPredicate(orPredicateWithSubpredicates:predicates)
             do {
-                let results = try backgroundContext.fetch(request)
-                seal.fulfill(results)
+                let results = try self.backgroundContext.fetch(request)
+                single(.success(results))
             } catch let error {
-                seal.reject(error)
+                single(.error(error))
             }
+            return Disposables.create {}
         }
     }
 }

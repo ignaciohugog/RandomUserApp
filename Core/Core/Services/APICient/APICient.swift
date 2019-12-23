@@ -1,22 +1,24 @@
 import Alamofire
 import PromiseKit
+import RxSwift
 
 class APIClient {
   @discardableResult
   class func request<T: Decodable>(_ route: APIConfiguration,
-                                   _ decoder: JSONDecoder = JSONDecoder()) -> Promise<T> {
+                                   _ decoder: JSONDecoder = JSONDecoder()) -> Single<T> {
     
-    return Promise<T> { seal in
-        
-      AF.request(route)
-        .responseDecodable (decoder: decoder){ (response: DataResponse<T, AFError>) in
-        switch response.result {
-        case .success(let value):
-          seal.fulfill(value)
-        case .failure(let error):            
-          seal.reject(error)
+    return Single<T>.create { single in
+          
+        AF.request(route).responseDecodable (decoder: decoder){ (response: DataResponse<T, AFError>) in
+          switch response.result {
+          case .success(let value):
+            single(.success(value))
+          case .failure(let error):
+            single(.error(error))
+          }
         }
-      }
+        
+        return Disposables.create {}
     }
   }
 }

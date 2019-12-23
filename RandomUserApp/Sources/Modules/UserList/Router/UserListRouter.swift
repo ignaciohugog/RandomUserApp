@@ -1,13 +1,23 @@
 import UIKit
 import Core
+import RxSwift
+
+enum UserListRouterEvent {
+    case present(user: User)
+}
 
 class UserListRouter {
+    private let disposeBag = DisposeBag()
+    let observer = PublishSubject<UserListRouterEvent>()
     weak var viewController: UIViewController?
-}
-
-extension UserListRouter: UserListRouterProtocol{
-    func present(_ user: User) -> Void{
-        let userModule = UserModule.build(user)
-        viewController?.navigationController?.pushViewController(userModule, animated: true)
+    
+    init() {
+        observer.subscribe(onNext: { event in
+            switch event {
+            case let .present(user):
+                let userModule = UserModule.build(user)
+                self.viewController?.navigationController?.pushViewController(userModule, animated: true)
+            }}).disposed(by: disposeBag)
     }
 }
+
